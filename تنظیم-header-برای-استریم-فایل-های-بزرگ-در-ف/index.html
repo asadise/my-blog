@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>تنظیم header برای استریم فایل‌های بزرگ در فریم ورک اسپرینگ (SpringFramework) –مرتضی اسدی – سایت شخصی مرتضی اسدی</title>    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن این نوشته‌ی من در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. فرض کنید که می‌خواهیم از طریق یک rest، یک فایل را که در پایگاه داده یا دایرکتوری فایل وجود دارد را در client نمایش دهیم؛
+" />
+    <meta property="og:description" content="پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن این نوشته‌ی من در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. فرض کنید که می‌خواهیم از طریق یک rest، یک فایل را که در پایگاه داده یا دایرکتوری فایل وجود دارد را در client نمایش دهیم؛
+" />
+    
+    <meta name="author" content="مرتضی اسدی" />
+
+    
+    <meta property="og:title" content="تنظیم header برای استریم فایل‌های بزرگ در فریم ورک اسپرینگ (SpringFramework)" />
+    <meta property="twitter:title" content="تنظیم header برای استریم فایل‌های بزرگ در فریم ورک اسپرینگ (SpringFramework)" />
+    <link rel="icon" href="/images/favicon.png" />
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="مرتضی اسدی - سایت شخصی مرتضی اسدی" href="/feed.xml" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>تنظیم header برای استریم فایل‌های بزرگ در فریم ورک اسپرینگ (SpringFramework) | مرتضی اسدی</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="تنظیم header برای استریم فایل‌های بزرگ در فریم ورک اسپرینگ (SpringFramework)" />
+<meta name="author" content="مرتضی اسدی" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن این نوشته‌ی من در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. فرض کنید که می‌خواهیم از طریق یک rest، یک فایل را که در پایگاه داده یا دایرکتوری فایل وجود دارد را در client نمایش دهیم؛" />
+<meta property="og:description" content="پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن این نوشته‌ی من در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. فرض کنید که می‌خواهیم از طریق یک rest، یک فایل را که در پایگاه داده یا دایرکتوری فایل وجود دارد را در client نمایش دهیم؛" />
+<link rel="canonical" href="http://asadiweb.ir/%D8%AA%D9%86%D8%B8%DB%8C%D9%85-header-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A7%D8%B3%D8%AA%D8%B1%DB%8C%D9%85-%D9%81%D8%A7%DB%8C%D9%84-%D9%87%D8%A7%DB%8C-%D8%A8%D8%B2%D8%B1%DA%AF-%D8%AF%D8%B1-%D9%81/" />
+<meta property="og:url" content="http://asadiweb.ir/%D8%AA%D9%86%D8%B8%DB%8C%D9%85-header-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A7%D8%B3%D8%AA%D8%B1%DB%8C%D9%85-%D9%81%D8%A7%DB%8C%D9%84-%D9%87%D8%A7%DB%8C-%D8%A8%D8%B2%D8%B1%DA%AF-%D8%AF%D8%B1-%D9%81/" />
+<meta property="og:site_name" content="مرتضی اسدی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-04T00:00:00+00:00" />
+<meta name="google-site-verification" content="muV1TkfhCKBMPJ9jtiGeVXkDrpwzXlkNakwVPJ7rtdA" />
+<script type="application/ld+json">
+{"description":"پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن این نوشته‌ی من در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. فرض کنید که می‌خواهیم از طریق یک rest، یک فایل را که در پایگاه داده یا دایرکتوری فایل وجود دارد را در client نمایش دهیم؛","author":{"@type":"Person","name":"مرتضی اسدی"},"@type":"BlogPosting","url":"http://asadiweb.ir/%D8%AA%D9%86%D8%B8%DB%8C%D9%85-header-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A7%D8%B3%D8%AA%D8%B1%DB%8C%D9%85-%D9%81%D8%A7%DB%8C%D9%84-%D9%87%D8%A7%DB%8C-%D8%A8%D8%B2%D8%B1%DA%AF-%D8%AF%D8%B1-%D9%81/","headline":"تنظیم header برای استریم فایل‌های بزرگ در فریم ورک اسپرینگ (SpringFramework)","dateModified":"2017-01-04T00:00:00+00:00","datePublished":"2017-01-04T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://asadiweb.ir/%D8%AA%D9%86%D8%B8%DB%8C%D9%85-header-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A7%D8%B3%D8%AA%D8%B1%DB%8C%D9%85-%D9%81%D8%A7%DB%8C%D9%84-%D9%87%D8%A7%DB%8C-%D8%A8%D8%B2%D8%B1%DA%AF-%D8%AF%D8%B1-%D9%81/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <div class="site-info">
+            <h1 class="site-name"><a href="/" rel="home">مرتضی اسدی</a></h1>
+            <p class="site-description">سایت شخصی مرتضی اسدی</p>
+          </div>
+          <nav>
+            <a href="/blog" rel="bookmark" title="نوشته‌های مرتضی اسدی">وبلاگ</a>
+            <a href="/" rel="bookmark" title="درباره مرتضی اسدی">درباره‌ی من</a>
+            <a href="/english" rel="bookmark" title="Morteza Asadi">English</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+    <div id="main" role="main" class="container">
+	  <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/" rel="home">
+				<span itemprop="name">مرتضی اسدی</span>
+				<meta itemprop="position" content="1" />
+			</a>
+		  </li>
+		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/blog">
+				<span itemprop="name">وبلاگ</span>
+				<meta itemprop="position" content="2" />
+			</a>
+		  </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/tag/برنامه‌نویسی">
+				<span itemprop='name'>برنامه‌نویسی</span>
+				<meta itemprop="position" content="3" />
+			</a>
+		  </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/tag/آموزش-فریم-ورک-اسپرینگ">
+				<span itemprop='name'>آموزش فریم ورک اسپرینگ</span>
+				<meta itemprop="position" content="4" />
+			</a>
+		  </li><meta name="numberOfItems" content="5" />
+		  <meta name="itemListOrder" content="Ascending" /></ul>
+	  <article class="post">
+  <h1 itemprop="headline">تنظیم header برای استریم فایل‌های بزرگ در فریم ورک اسپرینگ (SpringFramework)</h1>
+  <div class="date">
+    <time datetime="2017-01-04 00:00:00 +0000">
+	چهارشنبه ۱۵ دی ۱۳۹۵
+    </time>
+  </div>
+  <div class="entry">
+    <p>پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن <a href="http://asadiweb.ir/%d9%81%d8%b1%db%8c%d9%85-%d9%88%d8%b1%da%a9-%d8%a7%d8%b3%d9%be%d8%b1%db%8c%d9%86%da%af-spring-framework-%da%86%db%8c%d8%b3%d8%aa%d8%9f/">این نوشته‌ی</a> من در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. فرض کنید که می‌خواهیم از طریق یک rest، یک فایل را که در پایگاه داده یا دایرکتوری فایل وجود دارد را در client نمایش دهیم؛</p>
+
+<p>برای این کار بایستی از HttpServletResponse استفاده کنیم و پس از set کردن ContentType و سایر propertyهای مورد نظر در Header پاسخ، فایل مورد نظر را به نحوی در کلاینت نمایش دهیم. برای Stream کردن فایل مورد نظر استفاده  از پایگاه داده یا دایرکتوری فایل FileInputStream مناسب به نظر می‌رسد؛ برای فایل‌هایی با حجم بالا (به طور مثال چند صد مگابایت، یک یا چند گیگابایت) نمی‌توان فایل را به صورت کامل خواند و در خروجی نوشت؛ در این حالت ما نیازمند یک buffer هستیم که با استفاده از یک حلقه‌ تکرار، Stream فایل را از دایرکتوری فایل به اندازه buffer خوانده و در خروجی بنویسد. قطعه کد زیر را در نظر بگیرید:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">FileProvider</span> <span class="n">file</span> <span class="o">=</span> <span class="n">iFileProviderService</span><span class="o">.</span><span class="na">loadByName</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>  
+<span class="nc">String</span> <span class="n">filePath</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">getFilePath</span><span class="o">();</span>  
+<span class="nc">FileInputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>  
+<span class="k">try</span> <span class="o">{</span>  
+    <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="n">filePath</span> <span class="o">+</span> <span class="s">"/"</span> <span class="o">+</span> <span class="n">fileName</span><span class="o">);</span>  
+    <span class="kt">byte</span><span class="err">\</span><span class="o">[</span><span class="err">\</span><span class="o">]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">newbyte</span><span class="err">\</span><span class="o">[</span><span class="mi">4096</span><span class="err">\</span><span class="o">];</span>  
+    <span class="kt">int</span> <span class="n">bytesRead</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  
+    <span class="k">do</span> <span class="o">{</span>  
+        <span class="n">bytesRead</span> <span class="o">=</span> <span class="n">inputStream</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">buffer</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>  
+        <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">write</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">bytesRead</span><span class="o">);</span>  
+    <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">bytesRead</span> <span class="o">==</span> <span class="n">buffer</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>  
+    <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">getFileType</span><span class="o">()</span> <span class="o">+</span> <span class="s">";charset=UTF-8"</span><span class="o">);</span>  
+    <span class="n">response</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">"Content-Disposition"</span><span class="o">,</span> <span class="s">"inline; filename="</span> <span class="o">+</span> <span class="n">fileName</span><span class="o">);</span>  
+    <span class="c1">// set other properties of response...  </span>
+    <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">flush</span><span class="o">();</span>  
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>  
+    <span class="n">response</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="nc">HttpServletResponse</span><span class="o">.</span><span class="na">SC</span><span class="err">\</span><span class="n">_NOT</span><span class="err">\</span><span class="n">_FOUND</span><span class="o">);</span>  
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>  
+    <span class="k">if</span> <span class="o">(</span><span class="n">inputStream</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>  
+       <span class="n">inputStream</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>  
+<span class="o">}</span></code></pre></figure>
+
+<p>مشکلی که ممکن است در قطعه کد بالا بوجود آید احتمال set نشدن ContentType است؛ برای مثال فرض کنید یک فایل با فرمت PDF را می‌خواهیم در client نمایش دهیم؛ در مرورگر فایرفاکس همه چیز خوب پیش می‌رود و PDFViewer آن فایل  را به خوبی نمایش می‌دهد؛ اما در مرورگرهایی مثل کروم و اینترنت اکسپلورر، با باز کردن آدرس rest فایل در newTab، با فایل PDF به صورت یک فایل متنی برخورد می‌کنند و ما به جای دیدن فایل PDF، با تعدادی کاراکتر نامفهوم مواجه خواهیم شد. دلیل رخ دادن این مشکل احتمالا به نحوه‌ی برخورد و رندرینگ مرورگرهای مختلف در مواجهه با Response می‌تواند باشد؛ به عبارت دیگر رفتار مرورگرهای مختلف در برخورد با Response دریافتی متفاوت است؛ به عنوان مثال در مرورگر کروم احتمالا یک Header با مقادیر پیش‌فرض برای هر Response درنظر می‌گیرد و چون ما در حلقه‌ی while مشغول Stream فایل هستیم و کروم هیچ اطلاعی نسبت به اندازه‌ی Responseی که در حال دریافت شدن است، ندارد؛ پس ContentType پیش‌فرض که همان text/plain است را برای Header این Response درنظر می‌گیرد؛ حال آنکه در مرورگر فایرفاکس رندرینگ و نحوه‌ی برخورد با Response متفاوت بوده و دقبقا مطابق روند مورد انتظار می‌باشد.</p>
+
+<p>اما راه‌حل پیشنهادی برای حل این مشکل بدین صورت است که قبل از فرستادن بدنه‌ی Response به سمت client ابتدا Header آن را set کنیم، بنابراین قطعه کد بالا به صورت زیر تغییر می‌کند:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">FileProvider</span> <span class="n">file</span> <span class="o">=</span> <span class="n">iFileProviderService</span><span class="o">.</span><span class="na">loadByName</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>  
+<span class="nc">String</span> <span class="n">filePath</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">getFilePath</span><span class="o">();</span>  
+<span class="nc">FileInputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>  
+<span class="k">try</span> <span class="o">{</span>  
+    <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="n">filePath</span> <span class="o">+</span> <span class="s">"/"</span> <span class="o">+</span> <span class="n">fileName</span><span class="o">);</span>  
+    <span class="kt">byte</span><span class="err">\</span><span class="o">[</span><span class="err">\</span><span class="o">]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">newbyte</span><span class="err">\</span><span class="o">[</span><span class="mi">4096</span><span class="err">\</span><span class="o">];</span>  
+    <span class="kt">int</span> <span class="n">bytesRead</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  
+    <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">getFileType</span><span class="o">()</span> <span class="o">+</span> <span class="s">";charset=UTF-8"</span><span class="o">);</span>  
+    <span class="n">response</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">"Content-Disposition"</span><span class="o">,</span> <span class="s">"inline; filename="</span> <span class="o">+</span> <span class="n">fileName</span><span class="o">);</span>  
+    <span class="c1">// set other properties of response...  </span>
+    <span class="k">do</span> <span class="o">{</span>  
+        <span class="n">bytesRead</span> <span class="o">=</span> <span class="n">inputStream</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">buffer</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>  
+        <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">write</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">bytesRead</span><span class="o">);</span>  
+    <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">bytesRead</span> <span class="o">==</span> <span class="n">buffer</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>  
+    <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">flush</span><span class="o">();</span>  
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>  
+    <span class="n">response</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="nc">HttpServletResponse</span><span class="o">.</span><span class="na">SC</span><span class="err">\</span><span class="n">_NOT</span><span class="err">\</span><span class="n">_FOUND</span><span class="o">);</span>  
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>  
+    <span class="k">if</span> <span class="o">(</span><span class="n">inputStream</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>  
+       <span class="n">inputStream</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>  
+<span class="o">}</span></code></pre></figure>
+
+<p>با این تغییر مشاهده می‌شود که تمامی مرورگرهای یاد شده در این نوشته در برخورد با Response دریافتی که Stream فایل است، رفتار مشابهی دارند.</p>
+
+
+  </div>
+  <hr/>
+  <small id="post-tags">
+  <b>برچسب‌ها</b>:<a href="/tag/آموزش-فریم-ورک-اسپرینگ" title="آموزش فریم ورک اسپرینگ" rel="tag">آموزش فریم ورک اسپرینگ</a>،<a href="/tag/مرتضی-اسدی" title="مرتضی اسدی" rel="tag">مرتضی اسدی</a>،<a href="/tag/آموزش-جاوا-اسپرینگ" title="آموزش جاوا اسپرینگ" rel="tag">آموزش جاوا اسپرینگ</a>،<a href="/tag/استریم-فایل-بزرگ-اسپرینگ-جاوا" title="استریم فایل بزرگ اسپرینگ جاوا" rel="tag">استریم فایل بزرگ اسپرینگ جاوا</a>،<a href="/tag/Morteza-Asadi" title="Morteza Asadi" rel="tag">Morteza Asadi</a>،<a href="/tag/برنامه‌نویسی" title="برنامه‌نویسی" rel="tag">برنامه‌نویسی</a>،</small>
+  <div class="author-section">
+		<img class="author-image" src="http://gravatar.com/avatar/cb00fdea2f1306996f699afdd9c367d2?s=120" alt="مرتضی اسدی" title="مرتضی اسدی">
+	<div>
+		<div class="author-about">
+			<b>مرتضی اسدی</b>
+			<hr/>		
+		</div>
+		<div class="author-about site-description">سلام! من مرتضی اسدی هستم، یک توسعه‌دهنده‌ی نرم‌افزار و در این وبلاگ دست‌نوشته‌هایم را می‌نویسم. <a href="/" rel="author" target="_blank">درباره‌ی من بیشتر بخوانید.</a></div>
+	  </div>
+   </div>
+  <div class="related-posts">
+	<h3>مطالب مرتبط</h3>
+	<ul><li><a href="/%D9%85%D8%AA%D8%BA%DB%8C%D8%B1-final-%D8%B9%D8%A8%D8%A7%D8%B1%D8%AA-%D9%84%D8%A7%D9%85%D8%A8%D8%AF%D8%A7-%D8%AC%D8%A7%D9%88%D8%A7-8/" title="استفاده از متغیر final در عبارت‌های لامبدا جاوا 8">استفاده از متغیر final در عبارت‌های لامبدا جاوا 8</a></li> 
+	  	<li><a href="/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-form-scaner-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF/" title="آموزش کار با formScanner در فریم‌ورک اسپرینگ">آموزش کار با formScanner در فریم‌ورک اسپرینگ</a></li> 
+	  	<li><a href="/%D9%BE%DB%8C%D8%A7%D8%AF%D9%87-%D8%B3%D8%A7%D8%B2%DB%8C-%D8%AD%D9%84%D9%82%D9%87-%D9%87%D8%A7%DB%8C-%D8%AA%D9%88%D8%AF%D8%B1%D8%AA%D9%88-%D8%A8%D8%A7-%D8%A7%D8%B3%D8%AA%D9%81%D8%A7/" title="پیاده‌سازی حلقه‌های تودرتو با استفاده از لامبدا در جاوا ۸">پیاده‌سازی حلقه‌های تودرتو با استفاده از لامبدا در جاوا ۸</a></li> 
+	  	<li><a href="/%D9%85%D8%B9%D8%A7%D8%AF%D9%84-%D9%85%D8%AA%D8%AF-contains-%D8%AF%D8%B1-%D8%AC%D8%A7%D9%88%D8%A7-%DB%B8/" title="معادل متد contains در جاوا ۸">معادل متد contains در جاوا ۸</a></li> 
+	  	<li><a href="/%D8%A7%D8%B1%D8%AB-%D8%A8%D8%B1%DB%8C-%D8%AF%D8%B1-%D8%AC%D8%A7%D9%88%D8%A7/" title="ارث بری در جاوا">ارث بری در جاوا</a></li> 
+	  	</ul> 
+  </div><div class="comment-form">
+   <form id="comment-form" method="post" action="http://staticman3.herokuapp.com/v2/entry/asadise/my-blog/master/comments">
+    <input type="hidden" name="options[slug]" value="1483488000">
+    <input name="options[redirect]" type="hidden" value="http://asadiweb.ir/%D8%AA%D9%86%D8%B8%DB%8C%D9%85-header-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A7%D8%B3%D8%AA%D8%B1%DB%8C%D9%85-%D9%81%D8%A7%DB%8C%D9%84-%D9%87%D8%A7%DB%8C-%D8%A8%D8%B2%D8%B1%DA%AF-%D8%AF%D8%B1-%D9%81/?sendComment=true">
+    <input name="fields[url]" id="hidden-mail" type="hidden">
+    <input name="fields[agent]" id="hidden-useragent" type="hidden">
+    <label class="form-label">نام</label>   
+    <input type="text" required="required" name="fields[name]" placeholder="نام شما">
+    <label class="form-label">ایمیل</label>
+    <input type="email" required="required" name="fields[email]" placeholder="ایمیل شما" oninput="document.getElementById('hidden-mail').value = this.value.replace('@', '')">
+    <label class="form-label">متن نظر</label>
+    <textarea rows="4" required="required" name="fields[msg]"></textarea>
+    <input type="submit" value="ارسال نظر" />
+   </form>
+  </div><div class="pagination"><a href="http://asadiweb.ir/%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D8%AA%DA%AF-list-%D8%AF%D8%B1-%D9%81%D8%A7%DB%8C%D9%84-%D9%87%D8%A7%DB%8C%D8%A8%D8%B1%D9%86%D8%AA-%D9%BE%DB%8C%DA%A9%D8%B1%D8%A8%D9%86%D8%AF/" class="half-width" title="استفاده از تگ List در فایل هایبرنت (پیکربندی XML)">→ استفاده از تگ List در فایل هایبرنت (پیکربندی XML)</a><a href="http://asadiweb.ir/%D8%B1%D9%81%D8%B9-%D9%85%D8%B4%DA%A9%D9%84-infinite-recursion-%D8%AF%D8%B1-%D8%AE%D8%B1%D9%88%D8%AC%DB%8C-json-%D8%AF%D8%B1-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C/" class="half-width" title="رفع مشکل Infinite Recursion در خروجی json در فریم ورک اسپرینگ برای مدل‌هایی که ارتباط دو طرفه دارند">رفع مشکل Infinite Recursion در خروجی json در فریم ورک اسپرینگ برای مدل‌هایی که ارتباط دو طرفه دارند ←</a></div>
+  <script>
+  document.getElementById("hidden-useragent").value=navigator.userAgent;
+  if(getParameterByName("sendComment") == "true"){
+      alert("نظر شما با موفقیت ارسال شد.");
+      window.history.replaceState({}, document.title, "/%D8%AA%D9%86%D8%B8%DB%8C%D9%85-header-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A7%D8%B3%D8%AA%D8%B1%DB%8C%D9%85-%D9%81%D8%A7%DB%8C%D9%84-%D9%87%D8%A7%DB%8C-%D8%A8%D8%B2%D8%B1%DA%AF-%D8%AF%D8%B1-%D9%81/");
+  }
+  function getParameterByName(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  }
+  </script></article>
+
+    </div>
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+		  <p>
+			<a href="http://asadiweb.ir/feed.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" viewBox="0 0 24 24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;fill: #ea7819;"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.374 17c-.897 0-1.626-.727-1.626-1.624s.729-1.624 1.626-1.624 1.626.727 1.626 1.624-.729 1.624-1.626 1.624zm3.885 0c-.03-3.022-2.485-5.474-5.511-5.504v-2.406c4.361.03 7.889 3.555 7.92 7.91h-2.409zm4.081 0c-.016-5.297-4.303-9.571-9.592-9.594v-2.406c6.623.023 11.985 5.384 12 12h-2.408z"></path></svg></a>
+			<a onclick="var p=this.parentElement; p.innerHTML='<u>info&zwnj;<span class=\'gray\'>[at]</span>asadiweb.ir</u>'"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z" style="fill: #0077B5;"></path></svg></a>
+			<br>مطالب تحت مجوز <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.fa" rel="license" target="_blank">کریتیو کامنز</a> منتشر می‌شوند.</p>
+		  </p>
+        </footer>
+      </div>
+    </div>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-116158751-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/%D8%AA%D9%86%D8%B8%DB%8C%D9%85-header-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A7%D8%B3%D8%AA%D8%B1%DB%8C%D9%85-%D9%81%D8%A7%DB%8C%D9%84-%D9%87%D8%A7%DB%8C-%D8%A8%D8%B2%D8%B1%DA%AF-%D8%AF%D8%B1-%D9%81/',
+		  'title': 'تنظیم header برای استریم فایل‌های بزرگ در فریم ورک اسپرینگ (SpringFramework)'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+</body>
+</html>

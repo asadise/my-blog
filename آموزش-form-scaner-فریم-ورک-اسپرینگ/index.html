@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>آموزش کار با formScanner در فریم‌ورک اسپرینگ –مرتضی اسدی – سایت شخصی مرتضی اسدی</title>    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن آموزش فریم ورک اسپرینگ در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. معمولا برای تولید گزارشات و ایجاد بارکد از jasperReport استفاده می‌کنیم. برای خواندن بار کد و سایر کارهای مربوط به پردازش تصویر نیز می‌توانیم از یک dependency با نام formscanner می‌توان استفاده کرد. برای استفاده از این dependency باید کد زیر را به pom.xml خود اضافه کنید.
+" />
+    <meta property="og:description" content="پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن آموزش فریم ورک اسپرینگ در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. معمولا برای تولید گزارشات و ایجاد بارکد از jasperReport استفاده می‌کنیم. برای خواندن بار کد و سایر کارهای مربوط به پردازش تصویر نیز می‌توانیم از یک dependency با نام formscanner می‌توان استفاده کرد. برای استفاده از این dependency باید کد زیر را به pom.xml خود اضافه کنید.
+" />
+    
+    <meta name="author" content="مرتضی اسدی" />
+
+    
+    <meta property="og:title" content="آموزش کار با formScanner در فریم‌ورک اسپرینگ" />
+    <meta property="twitter:title" content="آموزش کار با formScanner در فریم‌ورک اسپرینگ" />
+    <link rel="icon" href="/images/favicon.png" />
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="مرتضی اسدی - سایت شخصی مرتضی اسدی" href="/feed.xml" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>آموزش کار با formScanner در فریم‌ورک اسپرینگ | مرتضی اسدی</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="آموزش کار با formScanner در فریم‌ورک اسپرینگ" />
+<meta name="author" content="مرتضی اسدی" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن آموزش فریم ورک اسپرینگ در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. معمولا برای تولید گزارشات و ایجاد بارکد از jasperReport استفاده می‌کنیم. برای خواندن بار کد و سایر کارهای مربوط به پردازش تصویر نیز می‌توانیم از یک dependency با نام formscanner می‌توان استفاده کرد. برای استفاده از این dependency باید کد زیر را به pom.xml خود اضافه کنید." />
+<meta property="og:description" content="پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن آموزش فریم ورک اسپرینگ در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. معمولا برای تولید گزارشات و ایجاد بارکد از jasperReport استفاده می‌کنیم. برای خواندن بار کد و سایر کارهای مربوط به پردازش تصویر نیز می‌توانیم از یک dependency با نام formscanner می‌توان استفاده کرد. برای استفاده از این dependency باید کد زیر را به pom.xml خود اضافه کنید." />
+<link rel="canonical" href="http://asadiweb.ir/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-form-scaner-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF/" />
+<meta property="og:url" content="http://asadiweb.ir/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-form-scaner-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF/" />
+<meta property="og:site_name" content="مرتضی اسدی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-23T00:00:00+00:00" />
+<meta name="google-site-verification" content="muV1TkfhCKBMPJ9jtiGeVXkDrpwzXlkNakwVPJ7rtdA" />
+<script type="application/ld+json">
+{"description":"پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن آموزش فریم ورک اسپرینگ در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. معمولا برای تولید گزارشات و ایجاد بارکد از jasperReport استفاده می‌کنیم. برای خواندن بار کد و سایر کارهای مربوط به پردازش تصویر نیز می‌توانیم از یک dependency با نام formscanner می‌توان استفاده کرد. برای استفاده از این dependency باید کد زیر را به pom.xml خود اضافه کنید.","author":{"@type":"Person","name":"مرتضی اسدی"},"@type":"BlogPosting","url":"http://asadiweb.ir/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-form-scaner-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF/","headline":"آموزش کار با formScanner در فریم‌ورک اسپرینگ","dateModified":"2018-07-23T00:00:00+00:00","datePublished":"2018-07-23T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://asadiweb.ir/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-form-scaner-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <div class="site-info">
+            <h1 class="site-name"><a href="/" rel="home">مرتضی اسدی</a></h1>
+            <p class="site-description">سایت شخصی مرتضی اسدی</p>
+          </div>
+          <nav>
+            <a href="/blog" rel="bookmark" title="نوشته‌های مرتضی اسدی">وبلاگ</a>
+            <a href="/" rel="bookmark" title="درباره مرتضی اسدی">درباره‌ی من</a>
+            <a href="/english" rel="bookmark" title="Morteza Asadi">English</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+    <div id="main" role="main" class="container">
+	  <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/" rel="home">
+				<span itemprop="name">مرتضی اسدی</span>
+				<meta itemprop="position" content="1" />
+			</a>
+		  </li>
+		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/blog">
+				<span itemprop="name">وبلاگ</span>
+				<meta itemprop="position" content="2" />
+			</a>
+		  </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/tag/برنامه‌نویسی">
+				<span itemprop='name'>برنامه‌نویسی</span>
+				<meta itemprop="position" content="3" />
+			</a>
+		  </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/tag/آموزش-فریم-ورک-اسپرینگ">
+				<span itemprop='name'>آموزش فریم ورک اسپرینگ</span>
+				<meta itemprop="position" content="4" />
+			</a>
+		  </li><meta name="numberOfItems" content="5" />
+		  <meta name="itemListOrder" content="Ascending" /></ul>
+	  <article class="post">
+  <h1 itemprop="headline">آموزش کار با formScanner در فریم‌ورک اسپرینگ</h1>
+  <div class="date">
+    <time datetime="2018-07-23 00:00:00 +0000">
+	دوشنبه ۱ مرداد ۱۳۹۷
+    </time>
+  </div>
+  <div class="entry">
+    <p>پیش از هر چیز باید بگویم که این نوشته مربوط به برنامه‌نویسی در فریم‌ورک اسپرینگ است؛ اگر با این فریم‌ورک آشنایی ندارید، خواندن <a href="http://asadiweb.ir/%d9%81%d8%b1%db%8c%d9%85-%d9%88%d8%b1%da%a9-%d8%a7%d8%b3%d9%be%d8%b1%db%8c%d9%86%da%af-spring-framework-%da%86%db%8c%d8%b3%d8%aa%d8%9f/">آموزش فریم ورک اسپرینگ</a> در مورد این چهارچوب برنامه‌نویسی می‌تواند برای شما مفید باشد. معمولا برای تولید گزارشات و ایجاد بارکد از jasperReport استفاده می‌کنیم. برای خواندن بار کد و سایر کارهای مربوط به پردازش تصویر نیز می‌توانیم از یک dependency با نام formscanner می‌توان استفاده کرد. برای استفاده از این dependency باید کد زیر را به pom.xml خود اضافه کنید.</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+   <span class="nt">&lt;groupId&gt;</span>com.albertoborsetta<span class="nt">&lt;/groupId&gt;</span>
+   <span class="nt">&lt;artifactId&gt;</span>formscanner<span class="nt">&lt;/artifactId&gt;</span>
+   <span class="nt">&lt;version&gt;</span>1.1.4<span class="nt">&lt;/version&gt;</span>
+   <span class="nt">&lt;type&gt;</span>jar<span class="nt">&lt;/type&gt;</span>
+   <span class="nt">&lt;exclusions&gt;</span>
+      <span class="nt">&lt;exclusion&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.google.zxing<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>core<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;/exclusion&gt;</span>
+      <span class="nt">&lt;exclusion&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.google.zxing<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>javase<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;/exclusion&gt;</span>
+   <span class="nt">&lt;/exclusions&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+   <span class="nt">&lt;groupId&gt;</span>com.google.zxing<span class="nt">&lt;/groupId&gt;</span>
+   <span class="nt">&lt;artifactId&gt;</span>core<span class="nt">&lt;/artifactId&gt;</span>
+   <span class="nt">&lt;version&gt;</span>3.3.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+   <span class="nt">&lt;groupId&gt;</span>com.google.zxing<span class="nt">&lt;/groupId&gt;</span>
+   <span class="nt">&lt;artifactId&gt;</span>javase<span class="nt">&lt;/artifactId&gt;</span>
+   <span class="nt">&lt;version&gt;</span>3.3.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span></code></pre></figure>
+
+<p>به دلیل بروز خطا در کامپایل،zxing dependency  را از formScanner dependency جدا کرده‌ایم.</p>
+
+<p>formScanner براساس یک تمپلیت xml که از روی برگه اسکن شده ساخته می‌شود کار می‌کند. برای ساخت این تمپلیت از یک نرم‌افزار دسکتاپی استفاده می‌گردد. این نرم‌افزار یک برگه اسکن شده به عنوان ورودی از ما می‌گیرد و با مشخص کردن محدوده‌ها و علامتگذاری نقاط مختلف، تمپلیت xml را به عنوان خروجی به ما می‌دهد.شکل زیر نمایی از این نرم‌افزار را نمایش می‌دهد.</p>
+<p class="center"><img src="/images/formScanner.png" alt="نرم‌افزار formScanner" title="نرم‌افزار formScanner" /></p>
+
+<p>برای ساخت یک تملیت جدید کلید Ctrl + C را می‌زنیم و فایل اسکن شده خود را انتخاب می‌کنیم. این نرم‌افزار از چهار نوع فیلد بارکد (میله‌ای و Qr)، سوالات سطری، سوالات ستونی و سوالات ماتریسی پشتیبانی می‌کند.<br />
+پس از مشخص کردن نوع فیلد و تعداد آن، بایستی محدوده‌‌ی هر یک از فیلدها را روی فایل اسکن شده مشخص کنیم. شکل زیر نمایی از یک پاسخنامه به همراه گزینه‌ها و بارکد علامتگذاری شده (به رنگ قرمز) را نشان می‌دهد.</p>
+<p class="center"><img src="/images/workbook.jpg" alt="یک نمونه پاسخ‌نامه اسکن شده" title="یک نمونه پاسخ‌نامه اسکن شده" /></p>
+<p>برای خواندن فیلدها درمحیط برنامه‌نویسی نیز باید به این صورت عمل کنیم که ابتدا چهار علامت چهارگوشه برگه اسکن شده را یافته و سپس با توجه به گروه‌های هر فیلد شروع به خواندن مقادیر مورد نظر خود کنیم. برای مثال قطعه کد زیر برای خواندن بارکد به کار می‌رود.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">File</span> <span class="n">template</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">"templateCreatedFromScannedFile.xtmpl"</span><span class="o">);</span>
+<span class="nc">BufferedImage</span> <span class="n">image</span> <span class="o">=</span> <span class="nc">ImageIO</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">imageFile</span><span class="o">);</span>
+<span class="nc">FormTemplate</span> <span class="n">filledForm</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FormTemplate</span><span class="o">(</span><span class="s">"Main Template"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">FormTemplate</span><span class="o">(</span><span class="n">template</span><span class="o">));</span>
+<span class="nc">Collection</span><span class="o">&lt;</span><span class="nc">FormArea</span><span class="o">&gt;</span> <span class="nc">FormAreas</span> <span class="o">=</span> <span class="n">filledForm</span><span class="o">.</span><span class="na">getParentTemplate</span><span class="o">().</span><span class="na">getGroup</span><span class="o">(</span><span class="s">"group1"</span><span class="o">).</span><span class="na">getAreas</span><span class="o">().</span><span class="na">values</span><span class="o">();</span>
+<span class="k">for</span> <span class="o">(</span><span class="nc">FormArea</span> <span class="n">barcodeArea</span> <span class="o">:</span> <span class="nc">FormAreas</span><span class="o">)</span>
+  <span class="k">for</span> <span class="o">(</span><span class="nc">FormArea</span> <span class="n">barcodeResultArea</span> <span class="o">:</span> <span class="k">new</span> <span class="nc">BarcodeDetector</span><span class="o">(</span><span class="n">filledForm</span><span class="o">,</span> <span class="n">barcodeArea</span><span class="o">,</span> <span class="n">image</span><span class="o">).</span><span class="na">call</span><span class="o">().</span><span class="na">values</span><span class="o">())</span>
+      <span class="n">barcode</span> <span class="o">=</span> <span class="n">barcodeResultArea</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span></code></pre></figure>
+
+<p>در قطعه کد بالا در سطراول همان تمپلیت که خروجی اپلیکیشن دسکتاپی بود را load کرده‌ایم و سطر سوم یک تمپلیت با این فایل xml می‌سازد. سطر دوم فایل اسکن شده که قرار است محتوای آن را بخوانیم بارگذاری می‌کند. سطر چهارم به بعد نیز متن بارکد مورد نظر (که در group1 قرار دارد) را می‌خواند.</p>
+
+<p>برای خواندن گزینه‌های هر سوال نیز از قطعه کد زیر بهره می‌بریم.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">File</span> <span class="n">template</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">"templateCreatedFromScannedFile.xtmpl"</span><span class="o">);</span>
+<span class="nc">BufferedImage</span> <span class="n">image</span> <span class="o">=</span> <span class="nc">ImageIO</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">imageFile</span><span class="o">);</span>
+<span class="n">filledForm</span><span class="o">.</span><span class="na">findCorners</span><span class="o">(</span><span class="n">image</span><span class="o">,</span> <span class="n">filledForm</span><span class="o">.</span><span class="na">getParentTemplate</span><span class="o">().</span><span class="na">getThreshold</span><span class="o">(),</span> <span class="n">filledForm</span><span class="o">.</span><span class="na">getParentTemplate</span><span class="o">().</span><span class="na">getDensity</span><span class="o">(),</span> <span class="n">filledForm</span><span class="o">.</span><span class="na">getParentTemplate</span><span class="o">().</span><span class="na">getCornerType</span><span class="o">(),</span> <span class="n">filledForm</span><span class="o">.</span><span class="na">getParentTemplate</span><span class="o">().</span><span class="na">getCrop</span><span class="o">());</span>
+<span class="n">filledForm</span><span class="o">.</span><span class="na">findPoints</span><span class="o">(</span><span class="n">image</span><span class="o">,</span> <span class="n">filledForm</span><span class="o">.</span><span class="na">getParentTemplate</span><span class="o">().</span><span class="na">getThreshold</span><span class="o">(),</span> <span class="n">filledForm</span><span class="o">.</span><span class="na">getParentTemplate</span><span class="o">().</span><span class="na">getDensity</span><span class="o">(),</span> <span class="n">filledForm</span><span class="o">.</span><span class="na">getParentTemplate</span><span class="o">().</span><span class="na">getSize</span><span class="o">());</span>
+<span class="n">filledForm</span><span class="o">.</span><span class="na">findAreas</span><span class="o">(</span><span class="n">image</span><span class="o">);</span>
+<span class="n">filledForm</span><span class="o">.</span><span class="na">getGroups</span><span class="o">().</span><span class="na">forEach</span><span class="o">((</span><span class="n">groupName</span><span class="o">,</span> <span class="n">formGroup</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+  <span class="n">formGroup</span><span class="o">.</span><span class="na">getFields</span><span class="o">().</span><span class="na">forEach</span><span class="o">((</span><span class="n">questionName</span><span class="o">,</span> <span class="n">formQuestion</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="c1">//Access to every Questions</span>
+    <span class="n">formQuestion</span><span class="o">.</span><span class="na">getPoints</span><span class="o">().</span><span class="na">forEach</span><span class="o">((</span><span class="n">pointName</span><span class="o">,</span> <span class="n">formPoint</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+      <span class="c1">// Access to every Points</span>
+    <span class="o">});</span>
+  <span class="o">});</span>
+<span class="o">});</span></code></pre></figure>
+
+<p><strong>نکات:</strong></p>
+
+<p>برای عملکرد بهتر formScanner به نکات زیر توجه کنید</p>
+
+<ul>
+  <li>
+    <p>بهتر است برای ایجاد تمپلیت از فایل اسکن شده استفاده شود. استفاده ازه فایل تصویری که با نرم‌افزارهایی ویرایش تصویر نظیر فتوشاپ ایجاد شده است، ممکن است فرآیند پردازش تصویر را برای این dependency با خطا روبرو کند و دقت تشخیص آن را پایین بیاورد.</p>
+  </li>
+  <li>
+    <p>گاهی اوقات پیش می‌آید که حاشیه‌های تصویر اسکن شده سیاه می‌شود. در این گونه موارد این dependency این حاشیه‌های سیاه را به عنوان یک یا دوتا از چهارگوشه تصویر در نظر گرفته و قادر به تشخیص درست نواحی مشخص شده نمی‌شود. برای پرهیز از این مشکل می‌توان از هر چهار طرف برای تصویر اسکن شده حاشیه‌ای بر حسب پیکسل (crop) مشخص کرد تا حاشیه‌های تصویر اسکن شده در نظر گرفته نشود (crop شود).</p>
+  </li>
+</ul>
+
+  </div>
+  <hr/>
+  <small id="post-tags">
+  <b>برچسب‌ها</b>:<a href="/tag/آموزش-فریم-ورک-اسپرینگ" title="آموزش فریم ورک اسپرینگ" rel="tag">آموزش فریم ورک اسپرینگ</a>،<a href="/tag/مرتضی-اسدی" title="مرتضی اسدی" rel="tag">مرتضی اسدی</a>،<a href="/tag/آموزش-جاوا-اسپرینگ" title="آموزش جاوا اسپرینگ" rel="tag">آموزش جاوا اسپرینگ</a>،<a href="/tag/پردازش-تصویر-در-اسپرینگ-جاوا" title="پردازش تصویر در اسپرینگ جاوا" rel="tag">پردازش تصویر در اسپرینگ جاوا</a>،<a href="/tag/برنامه‌نویسی" title="برنامه‌نویسی" rel="tag">برنامه‌نویسی</a>،</small>
+  <div class="author-section">
+		<img class="author-image" src="http://gravatar.com/avatar/cb00fdea2f1306996f699afdd9c367d2?s=120" alt="مرتضی اسدی" title="مرتضی اسدی">
+	<div>
+		<div class="author-about">
+			<b>مرتضی اسدی</b>
+			<hr/>		
+		</div>
+		<div class="author-about site-description">سلام! من مرتضی اسدی هستم، یک توسعه‌دهنده‌ی نرم‌افزار و در این وبلاگ دست‌نوشته‌هایم را می‌نویسم. <a href="/" rel="author" target="_blank">درباره‌ی من بیشتر بخوانید.</a></div>
+	  </div>
+   </div>
+  <div class="related-posts">
+	<h3>مطالب مرتبط</h3>
+	<ul><li><a href="/%D9%85%D8%AA%D8%BA%DB%8C%D8%B1-final-%D8%B9%D8%A8%D8%A7%D8%B1%D8%AA-%D9%84%D8%A7%D9%85%D8%A8%D8%AF%D8%A7-%D8%AC%D8%A7%D9%88%D8%A7-8/" title="استفاده از متغیر final در عبارت‌های لامبدا جاوا 8">استفاده از متغیر final در عبارت‌های لامبدا جاوا 8</a></li> 
+	  	<li><a href="/%D9%BE%DB%8C%D8%A7%D8%AF%D9%87-%D8%B3%D8%A7%D8%B2%DB%8C-%D8%AD%D9%84%D9%82%D9%87-%D9%87%D8%A7%DB%8C-%D8%AA%D9%88%D8%AF%D8%B1%D8%AA%D9%88-%D8%A8%D8%A7-%D8%A7%D8%B3%D8%AA%D9%81%D8%A7/" title="پیاده‌سازی حلقه‌های تودرتو با استفاده از لامبدا در جاوا ۸">پیاده‌سازی حلقه‌های تودرتو با استفاده از لامبدا در جاوا ۸</a></li> 
+	  	<li><a href="/%D9%85%D8%B9%D8%A7%D8%AF%D9%84-%D9%85%D8%AA%D8%AF-contains-%D8%AF%D8%B1-%D8%AC%D8%A7%D9%88%D8%A7-%DB%B8/" title="معادل متد contains در جاوا ۸">معادل متد contains در جاوا ۸</a></li> 
+	  	<li><a href="/%D8%A7%D8%B1%D8%AB-%D8%A8%D8%B1%DB%8C-%D8%AF%D8%B1-%D8%AC%D8%A7%D9%88%D8%A7/" title="ارث بری در جاوا">ارث بری در جاوا</a></li> 
+	  	<li><a href="/%D8%AD%D8%B0%D9%81-%DB%8C%DA%A9-%D9%85%D9%88%D8%AC%D9%88%D8%AF%DB%8C%D8%AA-%D9%88-%D9%88%D8%A7%D8%A8%D8%B3%D8%AA%DA%AF%DB%8C-%D9%87%D8%A7%DB%8C%D8%B4-%D8%A8%D9%87-%D8%B5%D9%88%D8%B1%D8%AA/" title="حذف یک موجودیت و وابستگی‌هایش به صورت سلسله مراتبی در فریم ورک اسپرینگ(Spring Framework)">حذف یک موجودیت و وابستگی‌هایش به صورت سلسله مراتبی در فریم ورک اسپرینگ(Spring Framework)</a></li> 
+	  	</ul> 
+  </div><div class="comment-form">
+   <form id="comment-form" method="post" action="http://staticman3.herokuapp.com/v2/entry/asadise/my-blog/master/comments">
+    <input type="hidden" name="options[slug]" value="1532304000">
+    <input name="options[redirect]" type="hidden" value="http://asadiweb.ir/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-form-scaner-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF/?sendComment=true">
+    <input name="fields[url]" id="hidden-mail" type="hidden">
+    <input name="fields[agent]" id="hidden-useragent" type="hidden">
+    <label class="form-label">نام</label>   
+    <input type="text" required="required" name="fields[name]" placeholder="نام شما">
+    <label class="form-label">ایمیل</label>
+    <input type="email" required="required" name="fields[email]" placeholder="ایمیل شما" oninput="document.getElementById('hidden-mail').value = this.value.replace('@', '')">
+    <label class="form-label">متن نظر</label>
+    <textarea rows="4" required="required" name="fields[msg]"></textarea>
+    <input type="submit" value="ارسال نظر" />
+   </form>
+  </div><div class="pagination"><a href="http://asadiweb.ir/%D8%AE%D9%84%D8%A7%D8%B5%D9%87-%D9%86%D9%82%D8%AF-%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85-%D8%A2%DB%8C%D9%86%D9%87-%D8%B3%DB%8C%D8%A7%D9%87/" class="half-width" title="خلاصه و نقد فصل دوم سریال آینه‌ی سیاه (Black Mirror): قسمت‌های اول، دوم، سوم و قسمت ویژه کریسمس">→ خلاصه و نقد فصل دوم سریال آینه‌ی سیاه (Black Mirror): قسمت‌های اول، دوم، سوم و قسمت ویژه کریسمس</a><a href="http://asadiweb.ir/%D8%AE%D9%84%D8%A7%D8%B5%D9%87-%D8%B1%D9%85%D8%A7%D9%86-%D9%85%D8%B3%D8%AE-%DA%A9%D8%A7%D9%81%DA%A9%D8%A7/" class="half-width" title="خلاصه رمان مسخ اثر فرانتس کافکا">خلاصه رمان مسخ اثر فرانتس کافکا ←</a></div>
+  <script>
+  document.getElementById("hidden-useragent").value=navigator.userAgent;
+  if(getParameterByName("sendComment") == "true"){
+      alert("نظر شما با موفقیت ارسال شد.");
+      window.history.replaceState({}, document.title, "/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-form-scaner-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF/");
+  }
+  function getParameterByName(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  }
+  </script></article>
+
+    </div>
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+		  <p>
+			<a href="http://asadiweb.ir/feed.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" viewBox="0 0 24 24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;fill: #ea7819;"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.374 17c-.897 0-1.626-.727-1.626-1.624s.729-1.624 1.626-1.624 1.626.727 1.626 1.624-.729 1.624-1.626 1.624zm3.885 0c-.03-3.022-2.485-5.474-5.511-5.504v-2.406c4.361.03 7.889 3.555 7.92 7.91h-2.409zm4.081 0c-.016-5.297-4.303-9.571-9.592-9.594v-2.406c6.623.023 11.985 5.384 12 12h-2.408z"></path></svg></a>
+			<a onclick="var p=this.parentElement; p.innerHTML='<u>info&zwnj;<span class=\'gray\'>[at]</span>asadiweb.ir</u>'"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z" style="fill: #0077B5;"></path></svg></a>
+			<br>مطالب تحت مجوز <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.fa" rel="license" target="_blank">کریتیو کامنز</a> منتشر می‌شوند.</p>
+		  </p>
+        </footer>
+      </div>
+    </div>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-116158751-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-form-scaner-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF/',
+		  'title': 'آموزش کار با formScanner در فریم‌ورک اسپرینگ'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+</body>
+</html>

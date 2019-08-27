@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>فریم ورک اسپرینگ (spring framework) چیست؟ –مرتضی اسدی – سایت شخصی مرتضی اسدی</title>    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="در این نوشته قصد دارم که فریم‌ورک اسپرینگ و مفاهیم آن را به طور خلاصه بررسی کنم. فریم‌ورک اسپرینگ (Spring Framework) یکی از چهارچوب‌های برنامه‌نویسی معروف و پرکاربرد در زبان جاواست. این فریم‌ورک متن‌باز (Open Source) بوده و اولین نسخه آن در ماه ژوئن سال ۲۰۰۳ میلادی عرضه شده است. اسپرینگ از ابتدای ارائه تا به امروز تغییرات زیادی داشته و امکانات و ابزارهای بسیار قدرتمندی را در اختیار برنامه‌نویسان قرار می‌دهد. هدف اصلی اسپرینگ توسعه‌ی برنامه‌های Enterprise است و بیشتر در پلتفرم Java EE مورد استفاده قرار می‌گیرد. 
+" />
+    <meta property="og:description" content="در این نوشته قصد دارم که فریم‌ورک اسپرینگ و مفاهیم آن را به طور خلاصه بررسی کنم. فریم‌ورک اسپرینگ (Spring Framework) یکی از چهارچوب‌های برنامه‌نویسی معروف و پرکاربرد در زبان جاواست. این فریم‌ورک متن‌باز (Open Source) بوده و اولین نسخه آن در ماه ژوئن سال ۲۰۰۳ میلادی عرضه شده است. اسپرینگ از ابتدای ارائه تا به امروز تغییرات زیادی داشته و امکانات و ابزارهای بسیار قدرتمندی را در اختیار برنامه‌نویسان قرار می‌دهد. هدف اصلی اسپرینگ توسعه‌ی برنامه‌های Enterprise است و بیشتر در پلتفرم Java EE مورد استفاده قرار می‌گیرد. 
+" />
+    
+    <meta name="author" content="مرتضی اسدی" />
+
+    
+    <meta property="og:title" content="فریم ورک اسپرینگ (spring framework) چیست؟" />
+    <meta property="twitter:title" content="فریم ورک اسپرینگ (spring framework) چیست؟" />
+    <link rel="icon" href="/images/favicon.png" />
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="مرتضی اسدی - سایت شخصی مرتضی اسدی" href="/feed.xml" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>فریم ورک اسپرینگ (spring framework) چیست؟ | مرتضی اسدی</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="فریم ورک اسپرینگ (spring framework) چیست؟" />
+<meta name="author" content="مرتضی اسدی" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="در این نوشته قصد دارم که فریم‌ورک اسپرینگ و مفاهیم آن را به طور خلاصه بررسی کنم. فریم‌ورک اسپرینگ (Spring Framework) یکی از چهارچوب‌های برنامه‌نویسی معروف و پرکاربرد در زبان جاواست. این فریم‌ورک متن‌باز (Open Source) بوده و اولین نسخه آن در ماه ژوئن سال ۲۰۰۳ میلادی عرضه شده است. اسپرینگ از ابتدای ارائه تا به امروز تغییرات زیادی داشته و امکانات و ابزارهای بسیار قدرتمندی را در اختیار برنامه‌نویسان قرار می‌دهد. هدف اصلی اسپرینگ توسعه‌ی برنامه‌های Enterprise است و بیشتر در پلتفرم Java EE مورد استفاده قرار می‌گیرد. " />
+<meta property="og:description" content="در این نوشته قصد دارم که فریم‌ورک اسپرینگ و مفاهیم آن را به طور خلاصه بررسی کنم. فریم‌ورک اسپرینگ (Spring Framework) یکی از چهارچوب‌های برنامه‌نویسی معروف و پرکاربرد در زبان جاواست. این فریم‌ورک متن‌باز (Open Source) بوده و اولین نسخه آن در ماه ژوئن سال ۲۰۰۳ میلادی عرضه شده است. اسپرینگ از ابتدای ارائه تا به امروز تغییرات زیادی داشته و امکانات و ابزارهای بسیار قدرتمندی را در اختیار برنامه‌نویسان قرار می‌دهد. هدف اصلی اسپرینگ توسعه‌ی برنامه‌های Enterprise است و بیشتر در پلتفرم Java EE مورد استفاده قرار می‌گیرد. " />
+<link rel="canonical" href="http://asadiweb.ir/%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF-spring-framework-%DA%86%DB%8C%D8%B3%D8%AA%D8%9F/" />
+<meta property="og:url" content="http://asadiweb.ir/%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF-spring-framework-%DA%86%DB%8C%D8%B3%D8%AA%D8%9F/" />
+<meta property="og:site_name" content="مرتضی اسدی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-30T00:00:00+00:00" />
+<meta name="google-site-verification" content="muV1TkfhCKBMPJ9jtiGeVXkDrpwzXlkNakwVPJ7rtdA" />
+<script type="application/ld+json">
+{"description":"در این نوشته قصد دارم که فریم‌ورک اسپرینگ و مفاهیم آن را به طور خلاصه بررسی کنم. فریم‌ورک اسپرینگ (Spring Framework) یکی از چهارچوب‌های برنامه‌نویسی معروف و پرکاربرد در زبان جاواست. این فریم‌ورک متن‌باز (Open Source) بوده و اولین نسخه آن در ماه ژوئن سال ۲۰۰۳ میلادی عرضه شده است. اسپرینگ از ابتدای ارائه تا به امروز تغییرات زیادی داشته و امکانات و ابزارهای بسیار قدرتمندی را در اختیار برنامه‌نویسان قرار می‌دهد. هدف اصلی اسپرینگ توسعه‌ی برنامه‌های Enterprise است و بیشتر در پلتفرم Java EE مورد استفاده قرار می‌گیرد. ","author":{"@type":"Person","name":"مرتضی اسدی"},"@type":"BlogPosting","url":"http://asadiweb.ir/%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF-spring-framework-%DA%86%DB%8C%D8%B3%D8%AA%D8%9F/","headline":"فریم ورک اسپرینگ (spring framework) چیست؟","dateModified":"2016-11-30T00:00:00+00:00","datePublished":"2016-11-30T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://asadiweb.ir/%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF-spring-framework-%DA%86%DB%8C%D8%B3%D8%AA%D8%9F/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <div class="site-info">
+            <h1 class="site-name"><a href="/" rel="home">مرتضی اسدی</a></h1>
+            <p class="site-description">سایت شخصی مرتضی اسدی</p>
+          </div>
+          <nav>
+            <a href="/blog" rel="bookmark" title="نوشته‌های مرتضی اسدی">وبلاگ</a>
+            <a href="/" rel="bookmark" title="درباره مرتضی اسدی">درباره‌ی من</a>
+            <a href="/english" rel="bookmark" title="Morteza Asadi">English</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+    <div id="main" role="main" class="container">
+	  <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/" rel="home">
+				<span itemprop="name">مرتضی اسدی</span>
+				<meta itemprop="position" content="1" />
+			</a>
+		  </li>
+		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/blog">
+				<span itemprop="name">وبلاگ</span>
+				<meta itemprop="position" content="2" />
+			</a>
+		  </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/tag/برنامه‌نویسی">
+				<span itemprop='name'>برنامه‌نویسی</span>
+				<meta itemprop="position" content="3" />
+			</a>
+		  </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a itemprop="item" href="/tag/آموزش-فریم-ورک-اسپرینگ">
+				<span itemprop='name'>آموزش فریم ورک اسپرینگ</span>
+				<meta itemprop="position" content="4" />
+			</a>
+		  </li><meta name="numberOfItems" content="5" />
+		  <meta name="itemListOrder" content="Ascending" /></ul>
+	  <article class="post">
+  <h1 itemprop="headline">فریم ورک اسپرینگ (spring framework) چیست؟</h1>
+  <div class="date">
+    <time datetime="2016-11-30 00:00:00 +0000">
+	چهارشنبه ۱۰ آذر ۱۳۹۵
+    </time>
+  </div>
+  <div class="entry">
+    <p>در این نوشته قصد دارم که فریم‌ورک اسپرینگ و مفاهیم آن را به طور خلاصه بررسی کنم. فریم‌ورک اسپرینگ (Spring Framework) یکی از چهارچوب‌های برنامه‌نویسی معروف و پرکاربرد در زبان جاواست. این فریم‌ورک متن‌باز (Open Source) بوده و اولین نسخه آن در ماه ژوئن سال ۲۰۰۳ میلادی عرضه شده است. اسپرینگ از ابتدای ارائه تا به امروز تغییرات زیادی داشته و امکانات و ابزارهای بسیار قدرتمندی را در اختیار برنامه‌نویسان قرار می‌دهد. هدف اصلی اسپرینگ توسعه‌ی برنامه‌های Enterprise است و بیشتر در پلتفرم Java EE مورد استفاده قرار می‌گیرد. </p>
+
+<p>اسپرینگ یک فریم‌ورک ماژولار بوده و ماژول‌های آن در دسته‌بندی زیر قرار می‌گیرند:</p>
+
+<ul>
+  <li>Core Container: شامل ماژول‌های Bean و Core است که هسته اصلی اسپرینگ را تشکیل می‌دهند.</li>
+  <li>AOP and Instrumentation: یک پیاده‌سازی از برنامه‌نویسی جنبه‌گرا (AOP) را فراهم می‌کند؛ در واقع این ماژول یک interceptor است. (به طور ساده می‌تواند عملیاتی در حین، قبل یا بعد از اجرای یک method، به آن اضافه کند.)</li>
+  <li>Messaging: ماژول مربوط به MessagePassing در برنامه‌نویسی شی‌گرا.</li>
+  <li>Data Access/Integration: ماژول دسترسی به DataSource و پایگاه داده.</li>
+  <li>Web: برای طراحی web بر اساس مدل MVC به کار می‌رود.</li>
+  <li>Test: این ماژول استفاده از ابزارهایی مانند JUnit و… را برای تست برنامه‌ها به ما می‌دهد.</li>
+</ul>
+
+<p>شکل زیر یک نمای کلی از ماژول‌های اسپرینگ را نمایش می‌دهد. شما می‌توانید برحسب نیاز خود تنها از ماژول‌های مورد نیازتان استفاده کنید و بقیه را کنار بگذارید.</p>
+<p class="center"><img src="/images/spring-framework.png" alt="شمای کلی ماژول‌های فریم‌ورک اسپرینگ" title="شمای کلی ماژول‌های فریم‌ورک اسپرینگ" /></p>
+
+<p>اسپرینگ چند ویژگی مهم از جمله Dependency Injection، Inversion of Control و Aspect Oriented Programming دارد که در اینجا به طور مختصر آنها را بررسی می‌کنیم:</p>
+
+<p><strong>Dependency Injection یا DI و Inversion of Control یا IoC:</strong></p>
+
+<p>واژه Dependency (وابستگی) هنگامی است که یک کلاس A و یک کلاس B داشته باشیم و کلاس B به کلاس A وابسته باشد. DI یعنی به جای اینکه objectهای ما مجبور به ساخت یک وابستگی باشند و یا از factory object بخواهند که یک وابستگی برای آن‌ها بسازد، کلا وابستگی‌های مورد نیاز را به cunstractor یا از طریق property با setter پاس بدهیم. DI به نوعی زیر مجموعه IoC محسوب می‌شود.</p>
+
+<p><strong>Aspect Oriented Programming یا AOP:</strong></p>
+
+<p>برنامه نویسی جنبه گرا (AOP) مدل خاصی از برنامه‌نویسی است که در آن سعی می شود وظایف از هم مستقل گردند ، یعنی بر خلاف برنامه‌نویسی شی‌گرا که در آن استقلال Objectها اهمیت دارد، در AOP سعی داریم برنامه را از لحاظ cross-cutting-concern ها جدا کنیم. concernها مفاهیمی غیرقابل تجزیه مانند امنیت، انتقال داده، احراز هویت و … هستند.</p>
+
+<p>در این نوشته من تلاش کردم تا دانسته‌های خودم را درباره فریم‌ورک اسپرینگ با شما به اشتراک بگذارم؛ لطفا اگر تعریفی گویا نیست در نظرات بنویسید تا به کمک یکدیگر بتوانیم آن را کامل‌تر کنیم. همچنین اگر شما تعاریف بهتری از این مفاهیم دارید خوشحال می‌شوم در قسمت نظرات آن را برای من و سایر خوانندگان بنویسید.</p>
+
+  </div>
+  <hr/>
+  <small id="post-tags">
+  <b>برچسب‌ها</b>:<a href="/tag/DI-چیست" title="DI چیست" rel="tag">DI چیست</a>،<a href="/tag/آموزش-فریم-ورک-اسپرینگ" title="آموزش فریم ورک اسپرینگ" rel="tag">آموزش فریم ورک اسپرینگ</a>،<a href="/tag/IoC-چیست" title="IoC چیست" rel="tag">IoC چیست</a>،<a href="/tag/مرتضی-اسدی" title="مرتضی اسدی" rel="tag">مرتضی اسدی</a>،<a href="/tag/aop-چیست" title="aop چیست" rel="tag">aop چیست</a>،<a href="/tag/آموزش-جاوا-اسپرینگ-spring" title="آموزش جاوا اسپرینگ spring" rel="tag">آموزش جاوا اسپرینگ spring</a>،<a href="/tag/Morteza-Asadi" title="Morteza Asadi" rel="tag">Morteza Asadi</a>،<a href="/tag/برنامه‌نویسی" title="برنامه‌نویسی" rel="tag">برنامه‌نویسی</a>،</small>
+  <div class="author-section">
+		<img class="author-image" src="http://gravatar.com/avatar/cb00fdea2f1306996f699afdd9c367d2?s=120" alt="مرتضی اسدی" title="مرتضی اسدی">
+	<div>
+		<div class="author-about">
+			<b>مرتضی اسدی</b>
+			<hr/>		
+		</div>
+		<div class="author-about site-description">سلام! من مرتضی اسدی هستم، یک توسعه‌دهنده‌ی نرم‌افزار و در این وبلاگ دست‌نوشته‌هایم را می‌نویسم. <a href="/" rel="author" target="_blank">درباره‌ی من بیشتر بخوانید.</a></div>
+	  </div>
+   </div>
+  <div class="related-posts">
+	<h3>مطالب مرتبط</h3>
+	<ul><li><a href="/%D9%85%D8%AA%D8%BA%DB%8C%D8%B1-final-%D8%B9%D8%A8%D8%A7%D8%B1%D8%AA-%D9%84%D8%A7%D9%85%D8%A8%D8%AF%D8%A7-%D8%AC%D8%A7%D9%88%D8%A7-8/" title="استفاده از متغیر final در عبارت‌های لامبدا جاوا 8">استفاده از متغیر final در عبارت‌های لامبدا جاوا 8</a></li> 
+	  	<li><a href="/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-form-scaner-%D9%81%D8%B1%DB%8C%D9%85-%D9%88%D8%B1%DA%A9-%D8%A7%D8%B3%D9%BE%D8%B1%DB%8C%D9%86%DA%AF/" title="آموزش کار با formScanner در فریم‌ورک اسپرینگ">آموزش کار با formScanner در فریم‌ورک اسپرینگ</a></li> 
+	  	<li><a href="/%D9%BE%DB%8C%D8%A7%D8%AF%D9%87-%D8%B3%D8%A7%D8%B2%DB%8C-%D8%AD%D9%84%D9%82%D9%87-%D9%87%D8%A7%DB%8C-%D8%AA%D9%88%D8%AF%D8%B1%D8%AA%D9%88-%D8%A8%D8%A7-%D8%A7%D8%B3%D8%AA%D9%81%D8%A7/" title="پیاده‌سازی حلقه‌های تودرتو با استفاده از لامبدا در جاوا ۸">پیاده‌سازی حلقه‌های تودرتو با استفاده از لامبدا در جاوا ۸</a></li> 
+	  	<li><a href="/%D9%85%D8%B9%D8%A7%D8%AF%D9%84-%D9%85%D8%AA%D8%AF-contains-%D8%AF%D8%B1-%D8%AC%D8%A7%D9%88%D8%A7-%DB%B8/" title="معادل متد contains در جاوا ۸">معادل متد contains در جاوا ۸</a></li> 
+	  	<li><a href="/%D8%A7%D8%B1%D8%AB-%D8%A8%D8%B1%DB%8C-%D8%AF%D8%B1-%D8%AC%D8%A7%D9%88%D8%A7/" title="ارث بری در جاوا">ارث بری در جاوا</a></li> 
+	  	</ul> 
+  </div><h3>نظرات</h3><hr/><div class="comment-list">
+	  <div class="comment-avatar">
+		<img src="http://www.gravatar.com/avatar/748a167e1282bbf64a7dafbd4917b4ff?d=mm&s=60">
+	  </div>
+	  <h4 class="comment-author-name">Mohamad‌ Basabr</h4>
+	  <small class="comment-timestamp"><time datetime="2018-04-26 17:42:13 +0430">پنج‌شنبه ۶ اردیبهشت ۱۳۹۷ - ساعت ۲۱:۴۲</time></small>
+	  <p class="comment-content">تعاریفی که برای IoC و DI و AOP کردید نامفهوم بودن، اگر ممکنه یکم بیشتر بسط بدید. متشکرم</p>
+       </div><div class="comment-list">
+	  <div class="comment-avatar">
+		<img src="http://www.gravatar.com/avatar/cb00fdea2f1306996f699afdd9c367d2?d=mm&s=60">
+	  </div>
+	  <h4 class="comment-author-name">مرتضی اسدی</h4>
+	  <small class="comment-timestamp"><time datetime="2018-04-26 17:50:47 +0430">پنج‌شنبه ۶ اردیبهشت ۱۳۹۷ - ساعت ۲۱:۵۰</time></small>
+	  <p class="comment-content">ارائه تعریف برای مفاهیمی که اشاره کردید، زیاد ساده نیست و من در این نوشته سعی کردم آنها را به روش ساده توضیح بدهم، با این حال فکر می‌کنم مطالعه‌ی  <a href='http://stackoverflow.com/a/21305195' rel='nofollow' target='_blank'>این سوال از Stackoverflow </a> برای شما مفید باشد</p>
+       </div><div class="comment-list">
+	  <div class="comment-avatar">
+		<img src="http://www.gravatar.com/avatar/4027006f510f85c84f9613e65c134438?d=mm&s=60">
+	  </div>
+	  <h4 class="comment-author-name">مهدی تاجیک</h4>
+	  <small class="comment-timestamp"><time datetime="2016-12-12 16:32:59 +0430">دوشنبه ۲۲ آذر ۱۳۹۵ - ساعت ۲۰:۳۲</time></small>
+	  <p class="comment-content">خوب بود ولی ای کاش آموزش را با مثال کامل می کردید.</p>
+       </div><div class="comment-list">
+	  <div class="comment-avatar">
+		<img src="http://www.gravatar.com/avatar/cb00fdea2f1306996f699afdd9c367d2?d=mm&s=60">
+	  </div>
+	  <h4 class="comment-author-name">مرتضی اسدی</h4>
+	  <small class="comment-timestamp"><time datetime="2016-12-13 08:24:38 +0430">سه‌شنبه ۲۳ آذر ۱۳۹۵ - ساعت ۱۲:۲۴</time></small>
+	  <p class="comment-content">باتشکر از شما، از آنجایی که من در این نوشته به بیان تعاریف و مفاهیم پایه‌ای در فریم‌ورک اسپرینگ پرداخته‌ام، آوردن مثال برای هر یک از تعاریف ذکر شده، خیلی پیچیده و در مواردی ناممکن بود.</p>
+       </div><div class="comment-list">
+	  <div class="comment-avatar">
+		<img src="http://www.gravatar.com/avatar/81ff7afe1df9a74b2317803e04bf5747?d=mm&s=60">
+	  </div>
+	  <h4 class="comment-author-name">طارق</h4>
+	  <small class="comment-timestamp"><time datetime="2019-05-06 11:12:19 +0430">دوشنبه ۱۶ اردیبهشت ۱۳۹۸ - ساعت ۱۵:۱۲</time></small>
+	  <p class="comment-content">مطالب که راجع به آی او سی و آی او سی کانینر و دیپندسی انجکشن اراه کردید. کاملا درست نیست هر کدام یک تعریف خاص و کاری خاصی را انجام میدهد.</p>
+       </div><div class="comment-form">
+   <form id="comment-form" method="post" action="http://staticman3.herokuapp.com/v2/entry/asadise/my-blog/master/comments">
+    <input type="hidden" name="options[slug]" value="1480464000">
+    <input name="options[redirect]" type="hidden" value="http://asadiweb.ir/فریم-ورک-اسپرینگ-spring-framework-چیست؟/?sendComment=true">
+    <input name="fields[url]" id="hidden-mail" type="hidden">
+    <input name="fields[agent]" id="hidden-useragent" type="hidden">
+    <label class="form-label">نام</label>   
+    <input type="text" required="required" name="fields[name]" placeholder="نام شما">
+    <label class="form-label">ایمیل</label>
+    <input type="email" required="required" name="fields[email]" placeholder="ایمیل شما" oninput="document.getElementById('hidden-mail').value = this.value.replace('@', '')">
+    <label class="form-label">متن نظر</label>
+    <textarea rows="4" required="required" name="fields[msg]"></textarea>
+    <input type="submit" value="ارسال نظر" />
+   </form>
+  </div><div class="pagination"><a href="http://asadiweb.ir/%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-jdbcUrl-%D8%A8%D8%B1%D8%A7%DB%8C-%D9%BE%D8%B4%D8%AA%DB%8C%D8%A8%D8%A7%D9%86%DB%8C-%D8%A7%D8%B2-utf-8-%D8%AF%D8%B1-MySql/" class="half-width" title="تغییر jdbc url برای پشتیبانی از utf-8 در پایگاه داده MySql">→ تغییر jdbc url برای پشتیبانی از utf-8 در پایگاه داده MySql</a><a href="http://asadiweb.ir/%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%D8%A7%D9%81%D8%B2%D9%88%D9%86%D9%87-%D9%87%D8%A7%DB%8C-%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D9%85%D8%B1%D9%88%D8%B1/" class="half-width" title="معرفی افزونه‌‌های کاربردی برای مرورگر گوگل کروم (Google Chrome)">معرفی افزونه‌‌های کاربردی برای مرورگر گوگل کروم (Google Chrome) ←</a></div>
+  <script>
+  document.getElementById("hidden-useragent").value=navigator.userAgent;
+  if(getParameterByName("sendComment") == "true"){
+      alert("نظر شما با موفقیت ارسال شد.");
+      window.history.replaceState({}, document.title, "/فریم-ورک-اسپرینگ-spring-framework-چیست؟/");
+  }
+  function getParameterByName(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  }
+  </script></article>
+
+    </div>
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+		  <p>
+			<a href="http://asadiweb.ir/feed.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" viewBox="0 0 24 24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;fill: #ea7819;"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.374 17c-.897 0-1.626-.727-1.626-1.624s.729-1.624 1.626-1.624 1.626.727 1.626 1.624-.729 1.624-1.626 1.624zm3.885 0c-.03-3.022-2.485-5.474-5.511-5.504v-2.406c4.361.03 7.889 3.555 7.92 7.91h-2.409zm4.081 0c-.016-5.297-4.303-9.571-9.592-9.594v-2.406c6.623.023 11.985 5.384 12 12h-2.408z"></path></svg></a>
+			<a onclick="var p=this.parentElement; p.innerHTML='<u>info&zwnj;<span class=\'gray\'>[at]</span>asadiweb.ir</u>'"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z" style="fill: #0077B5;"></path></svg></a>
+			<br>مطالب تحت مجوز <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.fa" rel="license" target="_blank">کریتیو کامنز</a> منتشر می‌شوند.</p>
+		  </p>
+        </footer>
+      </div>
+    </div>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-116158751-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/فریم-ورک-اسپرینگ-spring-framework-چیست؟/',
+		  'title': 'فریم ورک اسپرینگ (spring framework) چیست؟'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+</body>
+</html>

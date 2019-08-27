@@ -1,0 +1,40 @@
+name: مرتضی اسدی
+description: سایت شخصی مرتضی اسدی
+author: مرتضی اسدی
+url: http://asadiweb.ir
+baseurl: ""
+permalink: /:title/
+paginate_path: "/blog/page/:num/"
+paginate: 10
+commonTags: ['معرفی-نرم‌افزار','معرفی-فیلم','معرفی-کتاب','دلنوشت','اینترنت','برنامه‌نویسی', 'آموزش-فریم-ورک-اسپرینگ']
+disqus:
+staticmanUrl: http://staticman3.herokuapp.com/v2/entry/asadise/my-blog/master/comments
+google_analytics: UA-116158751-1
+webmaster_verifications:
+  google: muV1TkfhCKBMPJ9jtiGeVXkDrpwzXlkNakwVPJ7rtdA
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+sass:
+  style: :compressed # or :expanded
+defaults:
+  - scope:
+      path: images/*
+    values:
+      sitemap: false 
+  - scope:
+      path: font/*
+    values:
+      sitemap: false 
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed 
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-seo-tag  
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

@@ -1,0 +1,7 @@
+_id: ec7ebdb0-4ae7-11e8-9d89-87f59e4b29ef
+name: مرتضی اسدی
+email: cb00fdea2f1306996f699afdd9c367d2
+message: "ضمن تشکر از شما، باید بگویم توضیح دادن Stream کمی سخت است، Stream یک interface است که بیشتر در lambda expressionها کاربرد دارد. Stream با collection (مثل List یا Set)  تفاوت‌هایی دارد از جمله اینکه:<ul><li>Stream یک  data structure نیست که عناصر را ذخیره کند.</li><li>عملیات روی Stream خروجی تولید می‌کند؛ اما منبع (source) اصلی را تغییر نمی‌دهد.</li><li>بسیاری از عملیات روی Strem مانند (filtering، mapping،  و duplicate) قابلیت این را دارند که به صورت lazy پیاده‌سازی شوند.</li><li>یک Collection اندازه محدود دارد ولی stream نه.</li><li>در طی حیات یک Stream، عناصر آن فقط یکبار visit‌ می‌شوند.</li></ul>اگر علاقمندید بیشتر بخوانید؛ نگاهی به <a href='https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html#package.description' ref='nofollow' target='_blank'>مستندات رسمی</a> بیندازید.<br/>در خصوص  map نیز باید یدانید یکی از عملیاتی که روی Streamها تعریف می‌شود، map است و یک قسمت از مدل برنامه‌نویسی Map-Reduce است که (به طور خلاصه) داده‌ها را به قسمت‌های مجزا شکسته (map می‌کند) و پس محاسبات بر روی قسمت‌های مجزا و گرفتن خروجی، با تجمیع خروجی‌ها (reduce) نتیجه کل را حساب می‌کند."
+date: 148451668
+pageless: true
+templateKey: comments

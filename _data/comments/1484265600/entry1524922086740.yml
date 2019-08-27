@@ -1,0 +1,9 @@
+_id: fc2d7b20-4ae7-11e8-9d89-87f59e4b29ef
+name: احمد
+email: 360b01de4f2b9f25ab4801e5553d3fae
+message: "سلام. در این مثال از تابع flatMap هم میتوان استفاده کرد.<br/><figure class='highlight'><pre><code class='language-java' data-lang='java'><span class='kd'>public</span> <span class='kt'>boolean</span> <span class='nf'>matches</span><span class='o'>(</span><span class='n'>Collection</span> <span class='n'>parentObjects</span><span class='o'>,</span> <span class='n'>Object</span> <span class='n'>anObject</span><span class='o'>)</span> <span class='o'>{</span>
+	<span class='k'>return</span> <span class='n'>parentObjects</span><span class='o'>.</span><span class='na'>stream</span><span class='o'>().</span><span class='na'>flatMap</span><span class='o'>(</span><span class='n'>p</span> <span class='o'>-&gt;</span> <span class='n'>p</span><span class='o'>.</span><span class='na'>getChildren</span><span class='o'>().</span><span class='na'>stream</span><span class='o'>()).</span><span class='na'>anyMatch</span><span class='o'>(</span><span class='n'>c</span> <span class='o'>-&gt;</span> <span class='n'>c</span><span class='o'>.</span><span class='na'>getProperty</span><span class='o'>().</span><span class='na'>equals</span><span class='o'>(</span><span class='n'>anObject</span><span class='o'>));</span>
+<span class='o'>}</span></code></pre></figure>"
+date: 1484570532
+pageless: true
+templateKey: comments

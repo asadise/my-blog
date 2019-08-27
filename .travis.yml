@@ -1,0 +1,11 @@
+language: ruby
+branches:
+  only:
+  - master
+rvm:
+- 2.4.1
+before_script:
+ - chmod +x ./_plugins/cibuild
+script: ./_plugins/cibuild
+exclude: [vendor]
+sudo: false

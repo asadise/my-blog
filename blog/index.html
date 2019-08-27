@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div class="posts">
+    {% for post in paginator.posts %}
+    <article class="post">
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+	<div class="date">
+	    <time datetime="{{ post.date }}">
+		{{ post.date | date: "%Y-%m-%d" | jdate}}
+	    </time>
+	</div>
+	<div class="entry">
+        	{{ post.excerpt | split: site.excerpt_separator | first }}
+	</div>
+	<a href="{{ site.baseurl }}{{ post.url }}" class="read-more">ادامه مطلب</a>
+    </article>
+  {% endfor %}
+</div>
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" rel="prev" class="third-width">قبلی</a>
+  {% else %}
+    <span class="pagination-nonlink third-width">قبلی</span>
+  {% endif %}
+  <span class="pagination-nonlink third-width">صفحه: {{ paginator.page }} از {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" rel="next" class="third-width">بعدی</a>
+  {% else %}
+    <span class="pagination-nonlink third-width">بعدی</span>
+  {% endif %}
+</div>

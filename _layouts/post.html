@@ -1,0 +1,104 @@
+---
+layout: default
+---
+
+<article class="post">
+  <h1 itemprop="headline">{{ page.title }}</h1>
+  <div class="date">
+    <time datetime="{{ page.date }}">
+	{{ page.date | date: "%Y-%m-%d" | jdate}}
+    </time>
+  </div>
+  <div class="entry">
+    {{ content }}
+  </div>
+  <hr/>
+  <small id="post-tags">
+  <b>برچسب‌ها</b>: 
+    {%- for tag in page.tags -%}
+      <a href="{{ site.baseurl }}/tag/{{tag}}" title="{{tag  | replace: "-", " "}}" rel="tag">{{tag  | replace: "-", " "}}</a>، 
+    {%- endfor -%}
+  </small>
+  <div class="author-section">
+		<img class="author-image" src="http://gravatar.com/avatar/cb00fdea2f1306996f699afdd9c367d2?s=120" alt="مرتضی اسدی" title="مرتضی اسدی">
+	<div>
+		<div class="author-about">
+			<b>مرتضی اسدی</b>
+			<hr/>		
+		</div>
+		<div class="author-about site-description">سلام! من مرتضی اسدی هستم، یک توسعه‌دهنده‌ی نرم‌افزار و در این وبلاگ دست‌نوشته‌هایم را می‌نویسم. <a href="{{ site.baseurl }}/" rel="author" target="_blank">درباره‌ی من بیشتر بخوانید.</a></div>
+	  </div>
+   </div>
+  <div class="related-posts">
+	<h3>مطالب مرتبط</h3>
+	<ul>
+	 {%- assign commonTag = '' -%}
+	 {%- assign count = 0 -%}
+	 {%- for tag in site.commonTags -%}
+		{%- if page.tags contains tag -%} {%- assign commonTag = tag -%} {%- endif -%}
+	 {%- endfor -%}
+	 {%- for post in site.posts -%}
+		{%- if count < 5 and post.tags contains commonTag and post.url != page.url -%} 
+		<li><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li> 
+	  	{% assign count = count | plus: 1 %}
+	  {%- endif -%}
+	  {%- endfor -%}
+	</ul> 
+  </div>
+  {%- capture post_date -%}{{ page.date | date: "%s" }}{%- endcapture -%}
+  {%- if site.data.comments[post_date] -%}
+    <h3>نظرات</h3><hr/>
+    {%- assign comments = site.data.comments[post_date] | sort -%}
+    {%- for comment in comments -%}
+      <div class="comment-list">
+	  <div class="comment-avatar">
+		<img src="http://www.gravatar.com/avatar/{{ comment[1].email }}?d=mm&s=60">
+	  </div>
+	  <h4 class="comment-author-name">{{ comment[1].name }}</h4>
+	  <small class="comment-timestamp"><time datetime="{{ comment[1].date | date: "%Y-%m-%d %H:%M:%S +0430" }}">{{ comment[1].date | date: "%Y-%m-%d" | jdate }} - ساعت {{ comment[1].date | date: '%s' | plus: 14400 | date: "%H:%M" | to_persian_number}}</time></small>
+	  <p class="comment-content">{{ comment[1].msg | newline_to_br }}{{comment[1].message | newline_to_br }}</p>
+       </div>
+    {%- endfor -%}
+    {%- endif -%}
+  {%- if page.title != "پست اول" -%}
+  <div class="comment-form">
+   <form id="comment-form" method="post" action="{{ site.staticmanUrl }}">
+    <input type="hidden" name="options[slug]" value="{{ page.date | date: "%s" }}">
+    <input name="options[redirect]" type="hidden" value="{{site.url}}{{ page.url }}?sendComment=true">
+    <input name="fields[url]" id="hidden-mail" type="hidden">
+    <input name="fields[agent]" id="hidden-useragent" type="hidden">
+    <label class="form-label">نام</label>   
+    <input type="text" required="required" name="fields[name]" placeholder="نام شما">
+    <label class="form-label">ایمیل</label>
+    <input type="email" required="required" name="fields[email]" placeholder="ایمیل شما" oninput="document.getElementById('hidden-mail').value = this.value.replace('@', '')">
+    <label class="form-label">متن نظر</label>
+    <textarea rows="4" required="required" name="fields[msg]"></textarea>
+    <input type="submit" value="ارسال نظر" />
+   </form>
+  </div>
+{%- endif -%}
+ <div class="pagination">
+    {%- if page.next -%}
+      <a href="{{ page.next.url | absolute_url }}" class="half-width" title="{{ page.next.title }}">→ {{ page.next.title }}</a>
+    {%- else -%}
+      <span class="pagination-nonlink half-width"> ‌ </span>
+    {%- endif -%}
+    {%- if page.previous -%}
+      <a href="{{ page.previous.url | absolute_url }}" class="half-width" title="{{ page.previous.title }}">{{ page.previous.title }} ←</a>
+    {%- else -%}
+      <span class="pagination-nonlink half-width"> ‌ </span>
+    {%- endif -%}
+  </div>
+  <script>
+  document.getElementById("hidden-useragent").value=navigator.userAgent;
+  if(getParameterByName("sendComment") == "true"){
+      alert("نظر شما با موفقیت ارسال شد.");
+      window.history.replaceState({}, document.title, "{{ page.url }}");
+  }
+  function getParameterByName(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  }
+  </script>
+  {%- include disqus.html -%}
+</article>

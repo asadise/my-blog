@@ -1,27 +1,27 @@
 ---
 layout: default
 ---
-<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-	<meta name="numberOfItems" content="3" />
-	<meta name="itemListOrder" content="Ascending" />
-	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-	<a itemprop="item" href="{{ site.baseurl }}/" rel="home">
-		<span itemprop="name">مرتضی اسدی</span>
-		<meta itemprop="position" content="1" />
-	</a>
-	</li>
-		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-		<a itemprop="item" href="{{ site.baseurl }}/blog">
-			<span itemprop="name">وبلاگ</span>
-			<meta itemprop="position" content="2" />
-		</a>
-	</li>
-	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-		<span itemprop="name">{{page.title}}</span>
-		<meta itemprop="position" content="3" />
-		<meta itemprop="item" content="{{ site.baseurl }}/tag/{{page.title | replace: " ", "-"}}"/>
-	</li>
-</ul>
+    <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <meta name="numberOfItems" content="3" />
+        <meta name="itemListOrder" content="Ascending" />
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="{{ site.baseurl }}/" rel="home">
+            <span itemprop="name">مرتضی اسدی</span>
+            <meta itemprop="position" content="1" />
+        </a>
+        </li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="{{ site.baseurl }}/blog">
+                <span itemprop="name">وبلاگ</span>
+                <meta itemprop="position" content="2" />
+            </a>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="name">{{page.title}}</span>
+            <meta itemprop="position" content="3" />
+            <meta itemprop="item" content="{{ site.baseurl }}/tag/{{page.title | strip | replace: " ", "-"}}"/>
+        </li>
+    </ul>
 <h2 class="post_title">{{page.title}}</h2>
 <div class="posts">
   {%- for post in site.posts -%}

@@ -19,7 +19,7 @@ layout: default
     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         <span itemprop="name">{{page.title}}</span>
         <meta itemprop="position" content="3" />
-        <meta itemprop="item" content="{{ site.baseurl }}/tag/{{page.title | strip | replace: " ", "-"}}"/>
+        <meta itemprop="item" content="{{ site.url }}/tag/{{page.title | strip | replace: " ", "-"}}"/>
     </li>
 </ul>
 <h2 class="post_title">{{page.title}}</h2>

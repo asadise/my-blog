@@ -28,8 +28,8 @@
       </div>
     </div>
     <div id="main" role="main" class="container">
+	  {%- if page.path contains 'blog' -%}
 	  <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-	    {%- if page.path contains 'blog' -%}
 		<meta name="numberOfItems" content="2" />
 		<meta name="itemListOrder" content="Ascending" />
 		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -43,8 +43,10 @@
 			<meta itemprop="position" content="2" />
 			<meta itemprop="item" content="{{ site.baseurl }}/blog"/>
 		  </li>
-	    {%- endif -%}
-	    {%- if page.path contains '_posts' -%}
+	  </ul>
+	  {%- endif -%}
+	  {%- if page.path contains '_posts' -%}
+	  <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
 		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 			<a itemprop="item" href="{{ site.baseurl }}/" rel="home">
 				<span itemprop="name">مرتضی اسدی</span>
@@ -71,8 +73,8 @@
 		{%- endfor -%}
 		  <meta name="numberOfItems" content="{{ positionNumber }}" />
 		  <meta name="itemListOrder" content="Ascending" />
-		{%- endif -%}
 	  </ul>
+	  {%- endif -%}
 	  {{ content }}
     </div>
     <div class="wrapper-footer">

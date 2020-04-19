@@ -28,6 +28,8 @@ defaults:
       path: font/*
     values:
       sitemap: false 
+feed:
+  excerpt_only: true      
 plugins:
   - jekyll-sitemap
   - jekyll-feed 

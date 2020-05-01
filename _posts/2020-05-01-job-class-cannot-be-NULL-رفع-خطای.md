@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ORA-2745 job class cannot be NULL رفع خطای
+title: رفع خطای ORA-2745 job class cannot be NULL
 author: مرتضی اسدی
 tags:
 - آموزش-اوراکل

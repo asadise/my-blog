@@ -13,7 +13,7 @@ comments:
   moderation: false
   name: "asadiweb.ir"
   path: "_data/comments/{options.slug}"
-  requiredFields: ["name", "email", "msg"]
+  requiredFields: ["name", "email", "msg", "agent"]
   transforms:
     email: md5
 #  reCaptcha:

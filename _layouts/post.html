@@ -32,12 +32,14 @@ layout: default
   <div class="related-posts">
 	<h3>مطالب مرتبط</h3>
 	<ul>
+	 {%- assign n = site.posts | size -%}
+         {%- assign posts = site.posts | sample: n -%}	
 	 {%- assign commonTag = '' -%}
 	 {%- assign count = 0 -%}
 	 {%- for tag in site.commonTags -%}
 		{%- if page.tags contains tag -%} {%- assign commonTag = tag -%} {%- endif -%}
 	 {%- endfor -%}
-	 {%- for post in site.posts -%}
+	 {%- for post in posts -%}
 		{%- if count < 5 and post.tags contains commonTag and post.url != page.url -%} 
 		<li><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li> 
 	  	{% assign count = count | plus: 1 %}

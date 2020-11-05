@@ -9,7 +9,7 @@ paginate: 10
 commonTags: ['معرفی-نرم‌افزار','معرفی-فیلم','معرفی-کتاب','دلنوشت','اینترنت','برنامه‌نویسی', 'آموزش-فریم-ورک-اسپرینگ']
 disqus:
 staticmanUrl: http://staticman3.herokuapp.com/v2/entry/asadise/my-blog/master/comments
-google_analytics: UA-116158751-1
+google_analytics:
 webmaster_verifications:
   google: muV1TkfhCKBMPJ9jtiGeVXkDrpwzXlkNakwVPJ7rtdA
 kramdown:

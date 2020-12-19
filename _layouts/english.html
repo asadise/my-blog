@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{%- if page.title -%}{{ page.title }} – {%- endif -%}{{ site.name }} – {{ site.description }}</title>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}Morteza Asadi</title>
     {%- include meta.html -%}
 	<link rel="icon" href="{{ site.baseurl }}/images/favicon.png" />
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-	{%- seo -%}
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml" />
+    {%- seo -%}
   </head>
   <body>
     <div class="wrapper-masthead" style="margin-bottom: 50px">
@@ -17,7 +17,6 @@
         <header class="masthead clearfix">
           <div class="site-info-en">
             <h1 class="site-name"><a href="{{ site.baseurl }}/english" rel="bookmark">Morteza Asadi</a></h1>
-            <p class="site-description">Personal Website Of Morteza Asadi</p>
           </div>
           <nav class="nav-en">
             <a href="{{ site.baseurl }}/" title="Morteza Asadi" rel="home">فارسی</a>

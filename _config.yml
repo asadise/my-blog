@@ -7,7 +7,7 @@ paginate_path: "/blog/page/:num/"
 paginate: 10
 commonTags: ['معرفی-نرم‌افزار','معرفی-فیلم','معرفی-کتاب','دلنوشت','اینترنت','برنامه‌نویسی', 'آموزش-فریم-ورک-اسپرینگ']
 disqus:
-staticmanUrl: http://staticman3.herokuapp.com/v2/entry/asadise/my-blog/master/comments
+staticmanUrl: https://my-bcs.herokuapp.com/v2/entry/asadise/my-blog/master/comments
 google_analytics:
 webmaster_verifications:
   google: muV1TkfhCKBMPJ9jtiGeVXkDrpwzXlkNakwVPJ7rtdA

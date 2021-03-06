@@ -4,10 +4,9 @@
 @import "variables";
 @font-face {font-family: Sahel;src: url('font/Sahel.eot');src: url('font/Sahel.eot?#iefix') format('embedded-opentype'),     url('font/Sahel.woff') format('woff'),     url('font/Sahel.ttf') format('truetype');font-weight: normal;}    
 @font-face {font-family: Sahel;src: url('font/Sahel-Bold.eot');src: url('font/Sahel-Bold.eot?#iefix') format('embedded-opentype'),     url('font/Sahel-Bold.woff') format('woff'),     url('font/Sahel-Bold.ttf') format('truetype');font-weight: bold;}
-html {font-size: 100%;height:100%;}
-#wrapper {min-height:100%;position:relative;}
-body {background: $white;font: 18px/1.4 Sahel, $helvetica;color: $darkGray;height:100%;}
-.container {margin: 0 auto; max-width: 760px;padding: 0 10px;width: 100%;direction: rtl;text-align: justify;}
+html {font-size: 100%;}
+body {background: $white;font: 18px/1.4 Sahel, $helvetica;color: $darkGray; display: flex;min-height: 100vh;flex-direction: column;overflow-wrap: break-word;}
+.container {margin: 0 auto; max-width: 760px;padding: 0 10px;width: 100%;direction: rtl;text-align: justify;flex: 1 0 auto;}
 h1, h2, h3, h4, h5, h6 {font-family: $helveticaNeue;color: $darkerGray;font-weight: bold;line-height: 1.7;margin: 1em 0 5px;padding: 0; @include mobile {  line-height: 1.4;}}
 h1 {font-size: 30px;a {  color: inherit;}}
 h2 {font-size: 24px;}
@@ -63,7 +62,7 @@ ul.breadcrumb li a:hover {  color: #01447e;  text-decoration: underline;}
 .t-left{text-align: left;}
 .pagination a.active {background-color: #4CAF50;color: white;border-left: 1px solid #ddd;border-right: 1px solid #ddd;}
 .pagination a:hover:not(.active) {background-color: #ddd;}
-.wrapper-footer {margin-top: 50px;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;background-color: $lightGray;width:100%;height:90px;position:absolute;bottom:0;left:0;}
+.wrapper-footer {margin-top: 50px;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;background-color: $lightGray;}
 footer {padding: 20px 0;text-align: center;}
 input[type=text], input[type=email], textarea {width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;direction:rtl;}
 input[type=submit] {width: 100%;background-color: #4CAF50;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;}

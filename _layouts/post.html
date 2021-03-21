@@ -64,7 +64,7 @@ layout: default
     {%- endif -%}
   {%- if page.title != "پست اول" -%}
   <div class="comment-form">
-   <form id="comment-form" method="post" action="{{ site.staticmanUrl }}">
+   <form id="comment-form" method="post" action="{{ site.staticmanUrl }}" onsubmit="return checkForm(this);">
     <input type="hidden" name="options[slug]" value="{{ page.date | date: "%s" }}">
     <input name="options[redirect]" type="hidden" value="{{site.url}}{{ page.url }}?sendComment=true">
     <input name="fields[url]" id="hidden-mail" type="hidden">
@@ -75,7 +75,7 @@ layout: default
     <input type="email" required="required" name="fields[email]" placeholder="ایمیل شما" oninput="document.getElementById('hidden-mail').value = this.value.replace('@', '')">
     <label class="form-label">متن نظر</label>
     <textarea rows="4" required="required" name="fields[msg]" placeholder="دیدگاه خود را اینجا بنویسید"></textarea>
-    <input type="submit" value="ارسال نظر" />
+    <input type="submit" name="submitButton" value="ارسال نظر" />
    </form>
   </div>
 {%- endif -%}
@@ -100,6 +100,11 @@ layout: default
   function getParameterByName(name) {
       var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  }
+  function checkForm(form) {
+    form.submitButton.disabled = true;
+    form.submitButton.value = "در حال ارسال...";
+    return true;
   }
   </script>
   {%- include disqus.html -%}

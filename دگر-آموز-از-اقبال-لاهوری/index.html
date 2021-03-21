@@ -130,7 +130,7 @@
 	<h3>مطالب مرتبط</h3>
 	<ul></ul> 
   </div><div class="comment-form">
-   <form id="comment-form" method="post" action="https://my-bcs.herokuapp.com/v2/entry/asadise/my-blog/master/comments">
+   <form id="comment-form" method="post" action="https://my-bcs.herokuapp.com/v2/entry/asadise/my-blog/master/comments" onsubmit="return checkForm(this);">
     <input type="hidden" name="options[slug]" value="1295913600">
     <input name="options[redirect]" type="hidden" value="http://asadiweb.ir/%D8%AF%DA%AF%D8%B1-%D8%A2%D9%85%D9%88%D8%B2-%D8%A7%D8%B2-%D8%A7%D9%82%D8%A8%D8%A7%D9%84-%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C/?sendComment=true">
     <input name="fields[url]" id="hidden-mail" type="hidden">
@@ -141,7 +141,7 @@
     <input type="email" required="required" name="fields[email]" placeholder="ایمیل شما" oninput="document.getElementById('hidden-mail').value = this.value.replace('@', '')">
     <label class="form-label">متن نظر</label>
     <textarea rows="4" required="required" name="fields[msg]" placeholder="دیدگاه خود را اینجا بنویسید"></textarea>
-    <input type="submit" value="ارسال نظر" />
+    <input type="submit" name="submitButton" value="ارسال نظر" />
    </form>
   </div><div class="pagination"><a href="http://asadiweb.ir/%D8%AA%D8%A8%D8%B1%DB%8C%DA%A9-%D8%B3%D8%A7%D9%84-%DB%B1%DB%B3%DB%B9%DB%B0/" class="half-width" title="تبریک سال ۱۳۹۰">→ تبریک سال ۱۳۹۰</a><a href="http://asadiweb.ir/%D8%AA%D9%88%D9%84%D8%AF%D9%85-%D9%85%D8%A8%D8%A7%D8%B1%DA%A9/" class="half-width" title="تولدم مبارک">تولدم مبارک ←</a></div>
   <script>
@@ -153,6 +153,11 @@
   function getParameterByName(name) {
       var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  }
+  function checkForm(form) {
+    form.submitButton.disabled = true;
+    form.submitButton.value = "در حال ارسال...";
+    return true;
   }
   </script></article>
 

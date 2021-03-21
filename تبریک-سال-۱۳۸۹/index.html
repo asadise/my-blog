@@ -113,14 +113,14 @@
    </div>
   <div class="related-posts">
 	<h3>مطالب مرتبط</h3>
-	<ul><li><a href="/%D8%A7%D8%B3%D8%AA%D8%A7%D8%AF-%D8%AC%D9%88%D8%A7%D8%AF-%D9%85%D8%B9%D8%B1%D9%88%D9%81%DB%8C/" title="استاد جواد معروفی">استاد جواد معروفی</a></li> 
-	  	<li><a href="/%D8%B4%D8%A7%DB%8C%D8%A7-%D9%88%DA%A9%D9%85%D8%A7%D9%84-%D8%A7%D9%86%D8%B3%D8%A7%D9%86%DB%8C/" title="کمال انسانی">کمال انسانی</a></li> 
-	  	<li><a href="/%D8%AA%D8%A8%D8%B1%DB%8C%DA%A9-%D8%B3%D8%A7%D9%84-%DB%B1%DB%B3%DB%B9%DB%B6-%D8%AE%D9%88%D8%B1%D8%B4%DB%8C%D8%AF%DB%8C/" title="تبریک فرارسیدن نوروز و آغاز سال ۱۳۹۶ خورشیدی">تبریک فرارسیدن نوروز و آغاز سال ۱۳۹۶ خورشیدی</a></li> 
-	  	<li><a href="/%DB%B2%DB%B5-%D8%B3%D8%A7%D9%84%DA%AF%DB%8C/" title="۲۵ سالگی">۲۵ سالگی</a></li> 
-	  	<li><a href="/%D9%82%D8%B1%D8%A7%D8%B1-%D9%86%D8%A8%D9%88%D8%AF/" title="قرار نبود...">قرار نبود...</a></li> 
+	<ul><li><a href="/%DA%A9%D8%AA%D8%A7%D8%A8-%DB%B4%DB%B0-%D9%81%DA%A9%D8%B1-%D8%B3%D9%85%DB%8C/" title="کتاب ۴۰ فکر سمی">کتاب ۴۰ فکر سمی</a></li> 
+	  	<li><a href="/%DA%A9%D9%85%DB%8C-%D8%AF%D8%B1%D8%A8%D8%A7%D8%B1%D9%87-%D8%AF%DA%A9%D8%AA%D8%B1-%D8%B4%D8%B1%DB%8C%D8%B9%D8%AA%DB%8C/" title="کمی درباره دکتر شریعتی">کمی درباره دکتر شریعتی</a></li> 
+	  	<li><a href="/%D8%A8%D8%B1%D8%A7%DB%8C-%D9%85%D8%A7%D8%AF%D8%B1%D9%85/" title="برای مادرم…">برای مادرم…</a></li> 
+	  	<li><a href="/%D9%BE%DB%8C%D8%B1%D9%88%D8%B2%DB%8C-%D8%AA%DB%8C%D9%85-%D9%81%D9%88%D8%AA%D8%A8%D8%A7%D9%84-%D8%B3%D8%A7%D8%AD%D9%84%DB%8C-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86/" title="پیروزی تیم فوتبال ساحلی ایران در جام بین قاره‌ای">پیروزی تیم فوتبال ساحلی ایران در جام بین قاره‌ای</a></li> 
+	  	<li><a href="/%DB%8C%DA%A9-%D8%B1%D9%88%D8%B2-%D8%AC%D8%AF%DB%8C%D8%AF/" title="یک روز جدید">یک روز جدید</a></li> 
 	  	</ul> 
   </div><div class="comment-form">
-   <form id="comment-form" method="post" action="https://my-bcs.herokuapp.com/v2/entry/asadise/my-blog/master/comments">
+   <form id="comment-form" method="post" action="https://my-bcs.herokuapp.com/v2/entry/asadise/my-blog/master/comments" onsubmit="return checkForm(this);">
     <input type="hidden" name="options[slug]" value="1269129600">
     <input name="options[redirect]" type="hidden" value="http://asadiweb.ir/%D8%AA%D8%A8%D8%B1%DB%8C%DA%A9-%D8%B3%D8%A7%D9%84-%DB%B1%DB%B3%DB%B8%DB%B9/?sendComment=true">
     <input name="fields[url]" id="hidden-mail" type="hidden">
@@ -131,7 +131,7 @@
     <input type="email" required="required" name="fields[email]" placeholder="ایمیل شما" oninput="document.getElementById('hidden-mail').value = this.value.replace('@', '')">
     <label class="form-label">متن نظر</label>
     <textarea rows="4" required="required" name="fields[msg]" placeholder="دیدگاه خود را اینجا بنویسید"></textarea>
-    <input type="submit" value="ارسال نظر" />
+    <input type="submit" name="submitButton" value="ارسال نظر" />
    </form>
   </div><div class="pagination"><a href="http://asadiweb.ir/%D8%A8%D9%87%D8%A7%D8%B1/" class="half-width" title="بهار">→ بهار</a><a href="http://asadiweb.ir/%DA%86%D9%87%D8%A7%D8%B1%D8%B4%D9%86%D8%A8%D9%87-%D8%B3%D9%88%D8%B1%DB%8C/" class="half-width" title="چهارشنبه‌ سوری">چهارشنبه‌ سوری ←</a></div>
   <script>
@@ -143,6 +143,11 @@
   function getParameterByName(name) {
       var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  }
+  function checkForm(form) {
+    form.submitButton.disabled = true;
+    form.submitButton.value = "در حال ارسال...";
+    return true;
   }
   </script></article>
 

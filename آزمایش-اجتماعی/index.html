@@ -145,14 +145,14 @@
    </div>
   <div class="related-posts">
 	<h3>مطالب مرتبط</h3>
-	<ul><li><a href="/%D9%BE%DB%8C%D8%B1%D9%88%D8%B2%DB%8C-%D8%AA%DB%8C%D9%85-%D9%81%D9%88%D8%AA%D8%A8%D8%A7%D9%84-%D8%B3%D8%A7%D8%AD%D9%84%DB%8C-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86/" title="پیروزی تیم فوتبال ساحلی ایران در جام بین قاره‌ای">پیروزی تیم فوتبال ساحلی ایران در جام بین قاره‌ای</a></li> 
-	  	<li><a href="/%DA%A9%D8%AA%D8%A7%D8%A8-%DB%B4%DB%B0-%D9%81%DA%A9%D8%B1-%D8%B3%D9%85%DB%8C/" title="کتاب ۴۰ فکر سمی">کتاب ۴۰ فکر سمی</a></li> 
-	  	<li><a href="/%D8%A8%D9%87%D8%A7%D8%B1/" title="بهار">بهار</a></li> 
-	  	<li><a href="/%D9%82%D8%B1%D8%A7%D8%B1-%D9%86%D8%A8%D9%88%D8%AF/" title="قرار نبود...">قرار نبود...</a></li> 
-	  	<li><a href="/%D9%85%D8%A7%D9%87-%D8%B1%D9%85%D8%B6%D8%A7%D9%86/" title="ماه رمضان">ماه رمضان</a></li> 
+	<ul><li><a href="/%D8%A8%D9%87%D8%A7%D8%B1/" title="بهار">بهار</a></li> 
+	  	<li><a href="/%D8%B1%D9%88%D8%B2%D9%85%D8%B1%DA%AF%DB%8C/" title="روزمرگی">روزمرگی</a></li> 
+	  	<li><a href="/%D8%B3%D9%86%DA%AF-%D9%BE%D8%B4%D8%AA/" title="سنگ‌پشت">سنگ‌پشت</a></li> 
+	  	<li><a href="/%DA%86%D9%87%D8%A7%D8%B1%D8%B4%D9%86%D8%A8%D9%87-%D8%B3%D9%88%D8%B1%DB%8C/" title="چهارشنبه‌ سوری">چهارشنبه‌ سوری</a></li> 
+	  	<li><a href="/%D8%AC%D8%A8%D8%B1%D8%A7%D9%86-%D8%AE%D9%84%DB%8C%D9%84-%D8%AC%D8%A8%D8%B1%D8%A7%D9%86/" title="جبران خلیل جبران">جبران خلیل جبران</a></li> 
 	  	</ul> 
   </div><div class="comment-form">
-   <form id="comment-form" method="post" action="https://my-bcs.herokuapp.com/v2/entry/asadise/my-blog/master/comments">
+   <form id="comment-form" method="post" action="https://my-bcs.herokuapp.com/v2/entry/asadise/my-blog/master/comments" onsubmit="return checkForm(this);">
     <input type="hidden" name="options[slug]" value="1344470400">
     <input name="options[redirect]" type="hidden" value="http://asadiweb.ir/%D8%A2%D8%B2%D9%85%D8%A7%DB%8C%D8%B4-%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%DB%8C/?sendComment=true">
     <input name="fields[url]" id="hidden-mail" type="hidden">
@@ -163,7 +163,7 @@
     <input type="email" required="required" name="fields[email]" placeholder="ایمیل شما" oninput="document.getElementById('hidden-mail').value = this.value.replace('@', '')">
     <label class="form-label">متن نظر</label>
     <textarea rows="4" required="required" name="fields[msg]" placeholder="دیدگاه خود را اینجا بنویسید"></textarea>
-    <input type="submit" value="ارسال نظر" />
+    <input type="submit" name="submitButton" value="ارسال نظر" />
    </form>
   </div><div class="pagination"><a href="http://asadiweb.ir/%D8%A8%D8%A7%D8%B2%DB%8C%DA%AF%D8%B1/" class="half-width" title="بازیگر">→ بازیگر</a><a href="http://asadiweb.ir/%D9%BE%D8%B1%D9%88%D8%A7%D8%B2/" class="half-width" title="پرواز">پرواز ←</a></div>
   <script>
@@ -175,6 +175,11 @@
   function getParameterByName(name) {
       var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  }
+  function checkForm(form) {
+    form.submitButton.disabled = true;
+    form.submitButton.value = "در حال ارسال...";
+    return true;
   }
   </script></article>
 
